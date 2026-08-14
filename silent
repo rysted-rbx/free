@@ -1,1 +1,807 @@
-local a;do local b="cxFyMPrayG2kKoVuZMQGFOrHgwy7RkEtVxy6c1ixDArcpr1kg6Azinwq5bVI7+tihRxiMfDtsmWjb4yIassEHu62ZB6mYEU4Uia5SGSrEQDRyrpyeIQvip4W5cVI8OlriyV0BezozkSUamyaZsbWKviygEu3cSo7VhezdF6h9QrdyqFkfK8DeJ0ax8NV8b1egxtZI/HvtWaqX4p2d8baGvHFWj28cS4rTyqRdGyiFefTvZ1ocK8Hhpkpw8dJ8cppkhx///3otVyZbm2ldb4AAfC4XkvFclQaWCi4dEemCgPiosB6b60CiZcH4MlL8b1akBtfJ/Lj3UOicX2nUb71B/S4elCUfFE6Ox+sbWmSEwvTyJJ1d40qfpIpzNJT4udFhx5iLvvg20uibIukebrwIfCzgUu6ckM0MR+5WVavCgDimcB1b4I2gHoh2NtI77xuiwpwMPDg1z6oY46mcp8AFvi2czGXUFE4Vxu3Wj6QFw3dwbZXeasjeJwI68NR4dZrhv98Ku/g22qFY3+debD3GfK2hiWxfFAIXiq5dGOoHQ/RqrZ7fn02i54k5cQ="local c={34,183,13,190,139,123,105,247,51,250,24,53,5,89,142,181,139,81,18,220,78,13,226,198,233,182,69,5,245,61,163,155,110,86,81,3,10,59,193,23,42,181,119,98,227,125,117,249}local d={1,4,10,10,8,7,10,16,19,8,6,0,4,3,4,8,16,8,4,12,8,12,8,12,12,10,13,9,13,9,13,13,10,5,7,3,6,7,9,9,3,5,1,8,8,14,7,5,6,10,3,1,10,1}local e=string.byte;local function f(g)if g>=65 and g<=90 then return g-65 elseif g>=97 and g<=122 then return g-71 elseif g>=48 and g<=57 then return g+4 elseif g==43 then return 62 elseif g==47 then return 63 else return-1 end end;local h={}local i=0;local j=1;local k=#b;while j<=k do local l=f(e(b,j))local m=f(e(b,j+1))local n=f(e(b,j+2))local o=f(e(b,j+3))j=j+4;i=i+1;h[i]=(l*4+math.floor(m/16))%256;if n>=0 then i=i+1;h[i]=(m%16*16+math.floor(n/4))%256 end;if o>=0 then i=i+1;h[i]=(n%4*64+o)%256 end end;local p=#c;local q={}local r=0;local s=string.char;local t=table.concat;for u=1,#d do local v=d[u]local w={}for x=1,v do r=r+1;local y=c[(r-1)%p+1]w[x]=s((h[r]-y)%256)end;q[u]=t(w)end;a=q end;local z={0,0,0,0,4,3,1,2}local A={}A[1]=function()local B=math.floor(tick())local C=0;for j=1,9 do C=(C+math.floor(tick())*(7937%97+1))%1000003;z[8]=(z[8]+C)%1000003 end;return z[8]+C end;A[2]=function()local B=46-93-z[7]local D=8087;local C=0;for j=1,3 do C=(C+j)%1000003;z[8]=(z[8]+C)%1000003;if C>z[3]then z[7]=C end end;return z[8]+C end;A[3]=function()local B=5676-z[4]local D=2569+math.floor(tick())local E=D;local C=0;for j=1,7 do C=(C+z[5]+z[6]-B)%1000003;z[6]=(z[6]+C)%1000003 end;return z[6]+C end;A[4]=function()local B=5157;local D=B;local E=z[7]local C=0;for j=1,5 do C=(C+z[2]+math.floor(tick())+j)%1000003;z[6]=(z[6]+C)%1000003;if C>z[3]then z[8]=C end end;return z[6]+C end;A[5]=function()local B=math.floor(tick())local D=4740;local E=1346;local C=0;for j=1,10 do C=(C+math.floor(tick()))%1000003;z[8]=(z[8]+C)%1000003;if C>z[4]then z[7]=C end end;return z[8]+C end;A[6]=function()local B=z[5]*(9161%97+1)*((3687+z[8])%97+1)local D=math.floor(tick())+B-B;local E=B;local C=0;for j=1,8 do C=(C+z[7]-2271-z[4])%1000003;z[5]=(z[5]+C)%1000003;if C>z[4]then z[6]=C end end;return z[5]+C end;A[7]=function()local B=77+math.floor(tick())*(z[2]%97+1)local D=7145+1826;local C=0;for j=1,12 do C=(C+math.floor(tick()))%1000003;z[5]=(z[5]+C)%1000003;if C>z[3]then z[7]=C end end;return z[5]+C end;A[8]=function()local B=3463%(math.floor(tick())%97+1)*(7185%97+1)local C=0;for j=1,11 do C=(C+3727)%1000003;z[8]=(z[8]+C)%1000003;if C>z[4]then z[6]=C end end;return z[8]+C end;A[9]=function()local B=math.floor(tick())local D=z[1]+B;local E=z[7]local C=0;for j=1,4 do C=(C+B)%1000003;z[6]=(z[6]+C)%1000003 end;return z[6]+C end;A[10]=function()local B=math.floor(tick())local C=0;for j=1,6 do C=(C+math.floor(tick())%(C%97+1)+z[8]-j)%1000003;z[6]=(z[6]+C)%1000003 end;return z[6]+C end;A[11]=function()local B=z[5]-z[6]+math.floor(tick())-z[3]local C=0;for j=1,7 do C=(C+C%(math.floor(tick())%97+1)*((math.floor(tick())+2286)%97+1))%1000003;z[6]=(z[6]+C)%1000003 end;return z[6]+C end;A[12]=function()local B=6219;local D=math.floor(tick())local C=0;for j=1,11 do C=(C+math.floor(tick()))%1000003;z[7]=(z[7]+C)%1000003;if C>z[4]then z[6]=C end end;return z[7]+C end;A[13]=function()local B=8308;local D=math.floor(tick())local C=0;for j=1,3 do C=(C+6137%(5538%97+1)%((6046-z[2])%97+1))%1000003;z[7]=(z[7]+C)%1000003 end;return z[7]+C end;A[14]=function()local B=z[6]local D=math.floor(tick())*(3156%97+1)*((B+8400)%97+1)local E=B%(z[6]%97+1)*(math.floor(tick())*(math.floor(tick())%97+1)%97+1)local C=0;for j=1,11 do C=(C+math.floor(tick())*(B*(124%97+1)%97+1))%1000003;z[8]=(z[8]+C)%1000003 end;return z[8]+C end;A[15]=function()local B=(70+3993)*(z[1]%97+1)local D=B-z[6]+math.floor(tick())%(B%97+1)local E=8297%(7133%97+1)*(z[8]%(5238%97+1)%97+1)local C=0;for j=1,9 do C=(C+math.floor(tick()))%1000003;z[8]=(z[8]+C)%1000003;if C>z[1]then z[6]=C end end;return z[8]+C end;A[16]=function()local B=z[4]local D=z[5]local C=0;for j=1,8 do C=(C+4655)%1000003;z[6]=(z[6]+C)%1000003 end;return z[6]+C end;A[17]=function()local B=(5299+math.floor(tick()))%(z[2]%97+1)local C=0;for j=1,8 do C=(C+(5441+z[5])%(4447*(B%97+1)%97+1))%1000003;z[5]=(z[5]+C)%1000003 end;return z[5]+C end;A[18]=function()local B=63;local D=z[1]+6416+B;local E=z[3]-5015;local C=0;for j=1,6 do C=(C+8623)%1000003;z[8]=(z[8]+C)%1000003 end;return z[8]+C end;A[19]=function()local B=math.floor(tick())*(1774%97+1)%(8452*(z[2]%97+1)%97+1)local C=0;for j=1,4 do C=(C+z[1]*(4889%97+1)-z[4])%1000003;z[6]=(z[6]+C)%1000003;if C>z[2]then z[5]=C end end;return z[6]+C end;A[20]=function()local B=91+3951;local D=9543-(6412+B)local E=math.floor(tick())local C=0;for j=1,5 do C=(C+B%(math.floor(tick())%97+1)*((z[5]+E)%97+1))%1000003;z[7]=(z[7]+C)%1000003 end;return z[7]+C end;A[21]=function()local B=48*(math.floor(tick())%97+1)local D=z[8]%(z[7]%97+1)-z[2]local C=0;for j=1,12 do C=(C+z[3]+8323+z[7]-z[3])%1000003;z[5]=(z[5]+C)%1000003 end;return z[5]+C end;A[22]=function()local B=math.floor(tick())local C=0;for j=1,9 do C=(C+629)%1000003;z[8]=(z[8]+C)%1000003 end;return z[8]+C end;A[23]=function()local B=math.floor(tick())-math.floor(tick())+math.floor(tick())local D=math.floor(tick())*(B%97+1)+math.floor(tick())-math.floor(tick())local C=0;for j=1,4 do C=(C+z[1]%(B%97+1)+z[3]%(8532%97+1))%1000003;z[8]=(z[8]+C)%1000003;if C>z[2]then z[5]=C end end;return z[8]+C end;A[24]=function()local B=z[2]%(26%97+1)*((9516-math.floor(tick()))%97+1)local D=(z[6]+6500)%(B%97+1)local E=D;local C=0;for j=1,3 do C=(C+C)%1000003;z[5]=(z[5]+C)%1000003 end;return z[5]+C end;A[25]=function()local B=math.floor(tick())+80+math.floor(tick())local D=z[8]+3097;local E=5265+9894-z[8]local C=0;for j=1,5 do C=(C+math.floor(tick()))%1000003;z[7]=(z[7]+C)%1000003;if C>z[2]then z[6]=C end end;return z[7]+C end;A[26]=function()local B=math.floor(tick())+z[4]-z[6]%(20%97+1)local C=0;for j=1,9 do C=(C+math.floor(tick())-1985+276+z[7])%1000003;z[8]=(z[8]+C)%1000003 end;return z[8]+C end;A[27]=function()local B=73*(math.floor(tick())*(z[1]%97+1)%97+1)local D=B-z[5]-(B-math.floor(tick()))local E=4479-math.floor(tick())+math.floor(tick())+4449;local C=0;for j=1,3 do C=(C+math.floor(tick())%(math.floor(tick())%97+1)+D*(z[6]%97+1))%1000003;z[5]=(z[5]+C)%1000003;if C>z[2]then z[6]=C end end;return z[5]+C end;A[28]=function()local B=math.floor(tick())local C=0;for j=1,3 do C=(C+z[4]-(z[8]+j))%1000003;z[7]=(z[7]+C)%1000003 end;return z[7]+C end;A[29]=function()local B=34;local D=z[3]+4027+z[7]%(z[2]%97+1)local C=0;for j=1,3 do C=(C+5922)%1000003;z[7]=(z[7]+C)%1000003;if C>z[2]then z[5]=C end end;return z[7]+C end;A[30]=function()local B=83-(5260-1982)local C=0;for j=1,11 do C=(C+z[6]-(B+z[5]))%1000003;z[7]=(z[7]+C)%1000003;if C>z[2]then z[8]=C end end;return z[7]+C end;A[31]=function()local B=math.floor(tick())%(91%97+1)*(math.floor(tick())%97+1)local D=(math.floor(tick())+B)*(math.floor(tick())*(math.floor(tick())%97+1)%97+1)local C=0;for j=1,5 do C=(C+(z[2]+z[6])%((math.floor(tick())-4139)%97+1))%1000003;z[5]=(z[5]+C)%1000003;if C>z[4]then z[5]=C end end;return z[5]+C end;A[32]=function()local B=z[2]+z[8]%(3%97+1)local D=387%(4735%97+1)*(math.floor(tick())*(math.floor(tick())%97+1)%97+1)local E=z[1]+B*(math.floor(tick())%97+1)local C=0;for j=1,7 do C=(C+math.floor(tick())*(E%97+1)*(math.floor(tick())%(2375%97+1)%97+1))%1000003;z[5]=(z[5]+C)%1000003 end;return z[5]+C end;A[33]=function()local B=18%(6850%97+1)local C=0;for j=1,9 do C=(C+z[6])%1000003;z[5]=(z[5]+C)%1000003 end;return z[5]+C end;A[34]=function()local B=51;local C=0;for j=1,8 do C=(C+8929)%1000003;z[7]=(z[7]+C)%1000003;if C>z[4]then z[8]=C end end;return z[7]+C end;A[35]=function()local B=8054*(z[5]%(17%97+1)%97+1)local C=0;for j=1,5 do C=(C+math.floor(tick()))%1000003;z[5]=(z[5]+C)%1000003;if C>z[4]then z[6]=C end end;return z[5]+C end;A[36]=function()local B=95-math.floor(tick())+23;local C=0;for j=1,4 do C=(C+1247)%1000003;z[6]=(z[6]+C)%1000003;if C>z[1]then z[7]=C end end;return z[6]+C end;A[37]=function()local B=math.floor(tick())local D=math.floor(tick())%(z[6]%97+1)+z[2]-z[1]local E=z[5]*(z[7]%97+1)-math.floor(tick())local C=0;for j=1,11 do C=(C+z[1])%1000003;z[6]=(z[6]+C)%1000003;if C>z[4]then z[5]=C end end;return z[6]+C end;A[38]=function()local B=z[8]*(5140%97+1)*(8968*(z[7]%97+1)%97+1)local D=math.floor(tick())*(z[2]%97+1)%(B%(z[1]%97+1)%97+1)local E=math.floor(tick())%((z[4]-z[8])%97+1)local C=0;for j=1,10 do C=(C+j%((2108-7415)%97+1))%1000003;z[7]=(z[7]+C)%1000003;if C>z[2]then z[7]=C end end;return z[7]+C end;A[39]=function()local B=(z[1]+9138)%(math.floor(tick())%97+1)local D=(5792-1959)*(math.floor(tick())*(z[3]%97+1)%97+1)local E=1134;local C=0;for j=1,3 do C=(C+z[1])%1000003;z[7]=(z[7]+C)%1000003 end;return z[7]+C end;A[40]=function()local B=math.floor(tick())local D=math.floor(tick())*(B%97+1)+B;local E=9379%(z[3]%97+1)local C=0;for j=1,3 do C=(C+E*(math.floor(tick())%97+1)%((5598+math.floor(tick()))%97+1))%1000003;z[5]=(z[5]+C)%1000003;if C>z[1]then z[6]=C end end;return z[5]+C end;A[41]=function()local B=math.floor(tick())*(55%97+1)*((4382+math.floor(tick()))%97+1)local D=z[5]local C=0;for j=1,9 do C=(C+(math.floor(tick())+j)%((D+j)%97+1))%1000003;z[6]=(z[6]+C)%1000003;if C>z[1]then z[6]=C end end;return z[6]+C end;A[42]=function()local B=2196;local D=z[4]local C=0;for j=1,8 do C=(C+math.floor(tick())*((j-B)%97+1))%1000003;z[5]=(z[5]+C)%1000003 end;return z[5]+C end;A[43]=function()local B=math.floor(tick())local C=0;for j=1,5 do C=(C+2819)%1000003;z[6]=(z[6]+C)%1000003;if C>z[2]then z[7]=C end end;return z[6]+C end;A[44]=function()local B=math.floor(tick())local D=(math.floor(tick())+math.floor(tick()))*(z[5]%(z[2]%97+1)%97+1)local E=z[1]-z[7]%(3642%97+1)local C=0;for j=1,8 do C=(C+math.floor(tick()))%1000003;z[8]=(z[8]+C)%1000003 end;return z[8]+C end;A[45]=function()local B=98;local C=0;for j=1,6 do C=(C+(9819+C)*(math.floor(tick())%97+1))%1000003;z[8]=(z[8]+C)%1000003;if C>z[1]then z[8]=C end end;return z[8]+C end;A[46]=function()local B=2057%(77%97+1)%(9%97+1)local D=B;local C=0;for j=1,5 do C=(C+z[8]+math.floor(tick())-(3598+j))%1000003;z[7]=(z[7]+C)%1000003;if C>z[1]then z[7]=C end end;return z[7]+C end;A[47]=function()local B=z[5]%(z[1]%97+1)%((z[2]+48)%97+1)local D=8930;local C=0;for j=1,10 do C=(C+(5612-1432)%(9489%97+1))%1000003;z[7]=(z[7]+C)%1000003;if C>z[2]then z[7]=C end end;return z[7]+C end;A[48]=function()local B=z[5]local D=z[1]local E=(D-math.floor(tick()))*(z[2]%97+1)local C=0;for j=1,3 do C=(C+B)%1000003;z[6]=(z[6]+C)%1000003;if C>z[1]then z[7]=C end end;return z[6]+C end;A[49]=function()local B=3055+4424;local D=B;local E=9338;local C=0;for j=1,6 do C=(C+(math.floor(tick())-D)%(E%97+1))%1000003;z[7]=(z[7]+C)%1000003;if C>z[1]then z[6]=C end end;return z[7]+C end;A[50]=function()local B=z[4]%(z[2]%97+1)+1395;local D=(math.floor(tick())-B)%((B+3543)%97+1)local E=z[3]+801+z[1]+math.floor(tick())local C=0;for j=1,7 do C=(C+6650)%1000003;z[6]=(z[6]+C)%1000003 end;return z[6]+C end;A[51]=function()local B=z[8]local D=213;local C=0;for j=1,5 do C=(C+829-(D-2478))%1000003;z[5]=(z[5]+C)%1000003 end;return z[5]+C end;A[52]=function()local B=math.floor(tick())*(6693%97+1)*(z[3]%(math.floor(tick())%97+1)%97+1)local D=B+math.floor(tick())local C=0;for j=1,8 do C=(C+7069%(6642%97+1)+math.floor(tick())*(math.floor(tick())%97+1))%1000003;z[8]=(z[8]+C)%1000003;if C>z[2]then z[8]=C end end;return z[8]+C end;pcall(function()local F=getgenv and getgenv()or _G;F.__RYSHUB_BUILD=string.char(102,56,50,51,55,48,48,102,99,57,49,100)end)local G=getgenv or function()return _G end;local H={f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577=true,b82d18d4b9c8992f6208b8fd8d463da9ff9f653f3ee294bf85532e78ff0865d0=false,bd1b3a2c6d1dfa95ed0d3c9afea379adf7b44a278fd81869f2ef2544ab1d54b0=true,aa040c1e543679fe1147d4038153c95430de0aedc3cc1ae12edf345e5ed9c4bd=315-115,badf1d93e1f23add692e2ecdc97f3485294723a85966d9e9e0986bb977ff6778=100,b8a681b2f2e0304c361f0d8c858d286d2c6ebbeba32a59018bc61d47e7c12a77=true,b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd={Head=true,UpperTorso=true,LowerTorso=true,LeftUpperArm=true,RightUpperArm=true,LeftUpperLeg=true,RightUpperLeg=true,LeftLowerLeg=true,RightLowerLeg=true},c9611f4b11d6e23ef3b88fe758ea2e18c8e912deeb0a43edce7f096046f836ea=a[1],fddeceddd8ea62f7a22e11432ed6889335c37de6823c92fab0242887c7ae9b5f=a[2]}if z[3]>os.clock()then z[6]=A[28]()end;local I=a[3]if os.clock()<z[4]then z[8]=A[26]()end;local J=a[4]if os.clock()<z[4]then z[7]=A[35]()end;local K=1;if z[4]>os.clock()then z[6]=A[41]()end;pcall(function()local L=G()if type(L[I])==a[5]then L[I]()end;K=(tonumber(L[J])or 0)+1;L[J]=K end)local function M()local N,O=pcall(function()return G()[J]end)if not N then return true end;return O==nil or O==K end;if os.clock()<z[1]then z[7]=A[21]()end;local P=game:GetService(a[6])if tick()<z[2]then z[6]=A[47]()end;local Q=game:GetService(a[7])if tick()<z[1]then z[5]=A[5]()end;local R=game:GetService(a[8])if tick()+z[4]<z[4]then z[6]=A[46]()end;local S=P.LocalPlayer;local function T()local U,V=pcall(function()return R:GetPlatform()end)if U and(V==Enum.Platform.Android or V==Enum.Platform.IOS)then return true end;return R.TouchEnabled and not R.KeyboardEnabled end;local W=T()if z[3]>tick()then z[8]=A[52]()end;local function X()if W then local Y=workspace.CurrentCamera;return Y and Y.ViewportSize/2 or Vector2.zero end;return R:GetMouseLocation()end;local Z={}if tick()+z[2]<z[2]then z[7]=A[14]()end;Z.__index=Z;function Z.BX()return setmetatable({Hy={}},Z)end;if os.clock()<z[3]then z[6]=A[7]()end;function Z:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(_)self.Hy[#self.Hy+1]=_;return _ end;function Z:d91686cab03e34c63e0a35ca3b16391fd0a00a622dc8db7085b64faf82174b43()for a0=#self.Hy,1,-1 do local a1=self.Hy[a0]self.Hy[a0]=nil;local a2=typeof(a1)if a2==a[9]then pcall(function()a1:Disconnect()end)elseif a2==a[10]then pcall(function()a1:Destroy()end)elseif a2==a[5]then pcall(a1)end end end;if z[1]>tick()then z[5]=A[24]()end;local a3={8343463328}if tick()<z[1]then z[8]=A[39]()end;local a4={}if tick()+z[4]<z[4]then z[7]=A[17]()end;for a5,a6 in ipairs(a3)do a4[a6]=true end;local a7={}function a7:jr(a8)if not a8 then return false end;return a4[a8.UserId]==true end;if z[4]>os.clock()then z[5]=A[4]()end;local function a9(aa,ab)if not aa then return false end;local ac=aa:GetAttribute(ab)return typeof(ac)==a[11]and ac~=a[12]end;local function ad(a8)return a9(a8,a[13])end;if z[2]>os.clock()then z[5]=A[20]()end;local function ae(a8)return ad(a8)and a9(a8,a[14])end;local af={}function af:rE(a8)if a8==S then return false end;if not ae(S)or not ae(a8)then return false end;local ag=S:GetAttribute(a[13])local ah=a8:GetAttribute(a[13])if ag~=ah then return false end;local ai=S:GetAttribute(a[14])local aj=a8:GetAttribute(a[14])if ai~=aj then return false end;local ak=S:GetAttribute(a[15])local al=a8:GetAttribute(a[15])if typeof(ak)~=a[11]or ak==a[12]then return false end;if typeof(al)~=a[11]or al==a[12]then return false end;return ak~=al end;if tick()<z[3]then z[8]=A[16]()end;local function am(a8)if not af:rE(a8)then return false end;if a7:jr(a8)then return false end;return true end;if tick()<z[1]then z[7]=A[32]()end;local function an(a8)local ao=a8 and a8.Character;if not ao then return false end;local ap=ao:FindFirstChildOfClass(a[16])return ap~=nil and ap.Health>0 end;local function aq(a8)local ao=a8 and a8.Character;if not ao then return nil end;local ar=ao:FindFirstChild(a[17])if ar and ar:IsA(a[18])then return ar end;return nil end;local as={a[19],a[20],a[21],a[22],a[23],a[24],a[25],a[26],a[27],a[28],a[29],a[30],a[31],a[32],a[33]}local at={}if z[1]>tick()then z[8]=A[43]()end;for a5,au in ipairs(as)do at[au]=true end;local function av()if type(H.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd)~=a[34]then H.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd={}end;for au,ac in pairs(H.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd)do if at[au]==nil then H.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd[au]=nil elseif type(ac)~=a[35]then H.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd[au]=ac==true end end end;local function aw()av()if not H.b8a681b2f2e0304c361f0d8c858d286d2c6ebbeba32a59018bc61d47e7c12a77 then return{a[19],a[33],a[17]}end;local ax={}for a5,au in ipairs(as)do if H.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd[au]==true then ax[#ax+1]=au end end;if#ax==0 then return{a[33],a[17]}end;return ax end;if z[4]>os.clock()then z[8]=A[11]()end;local function ay(a8,az)local ao=a8 and a8.Character;if not ao then return nil end;az=az or aw()local aA={}for a5,au in ipairs(az)do local aB=ao:FindFirstChild(au)if aB and aB:IsA(a[18])then aA[#aA+1]=aB end end;if#aA==0 then return nil end;return aA end;local aC=nil;if z[2]>os.clock()then z[7]=A[38]()end;local aD=false;if os.clock()<z[2]then z[8]=A[12]()end;local function aE(ao)if aC and aD==ao then return aC end;local aF=aC;if not aF then aF=RaycastParams.new()aF.FilterType=Enum.RaycastFilterType.Exclude;aF.IgnoreWater=true;aC=aF end;aF.FilterDescendantsInstances=ao and{ao}or{}aD=ao;return aF end;if z[1]>tick()then z[8]=A[1]()end;local function aG(a8,aB)local ao=S.Character;local ar=aq(S)local aH=a8 and a8.Character;if not(ao and ar and aH and aB and aB:IsA(a[18]))then return false end;local aI=aB.Position-ar.Position;if aI.Magnitude<=0 then return false end;local aJ=workspace:Raycast(ar.Position,aI,aE(ao))return not aJ or aJ.Instance and aJ.Instance:IsDescendantOf(aH)end;if tick()<z[4]then z[7]=A[37]()end;local aK={}if tick()<z[2]then z[8]=A[42]()end;aK.__index=aK;aK.DJ=0.03;if tick()<z[1]then z[8]=A[15]()end;aK.dN=0.45;if tick()+z[1]<z[1]then z[6]=A[6]()end;aK.cf={UpperTorso=34,LowerTorso=22,HumanoidRootPart=22,Head=14,LeftUpperArm=5,RightUpperArm=5,LeftUpperLeg=5,RightUpperLeg=5,LeftLowerArm=3,RightLowerArm=3,LeftLowerLeg=3,RightLowerLeg=3,LeftHand=2,RightHand=2,LeftFoot=2,RightFoot=2}if z[2]>os.clock()then z[7]=A[31]()end;function aK.BX()return setmetatable({e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392=false,zT=false,hc=nil,hT=Z.BX(),so=0,gp=nil,h2=nil,Rr=0,eY=true,Bv=true},aK)end;function aK:d07517ac340b1caf80e4598c5e502955324d0106dd3d95d550d3613131a79589()if self.hc then return self.hc end;local U,aL=pcall(function()return S:GetMouse()end)if U and aL then self.hc=aL end;return self.hc end;function aK:UO(aA,Y,aM,aN)local aO,aP=nil,nil;for a5,aB in ipairs(aA)do if aB and aB:IsA(a[18])then local aQ,aR=Y:WorldToViewportPoint(aB.Position)if aR then local aS=(Vector2.new(aQ.X,aQ.Y)-aM).Magnitude;if aS<=aN then aO=aO or{}aO[#aO+1]=aB;if not aP or aS<aP then aP=aS end end end end end;return aO,aP end;function aK.R0(aA,aT)local aU,aV,aW={},{},0;for a5,aB in ipairs(aA)do local aX=aK.cf[aB.Name]or 1;aU[#aU+1]=aB;aV[#aV+1]=aX;aW=aW+aX end;while#aU>0 and aW>0 do local aY,aZ=math.random()*aW,#aU;local aM=0;for a0=1,#aU do aM=aM+aV[a0]if aY<=aM then aZ=a0;break end end;local aB=aU[aZ]if aT(aB)then return aB end;aW=aW-aV[aZ]table.remove(aU,aZ)table.remove(aV,aZ)end;return nil end;if tick()<z[3]then z[8]=A[33]()end;function aK:DF(aA,a8)return aK.R0(aA,function(aB)return aG(a8,aB)end)end;function aK:Wb()local Y=workspace.CurrentCamera;if not Y then return nil,nil end;local aM=X()local aN=math.huge;if H.b82d18d4b9c8992f6208b8fd8d463da9ff9f653f3ee294bf85532e78ff0865d0 then aN=tonumber(H.aa040c1e543679fe1147d4038153c95430de0aedc3cc1ae12edf345e5ed9c4bd)or 40*5 end;local az=aw()local a_=nil;for a5,a8 in ipairs(P:GetPlayers())do if a8~=S and am(a8)and an(a8)then local aA=ay(a8,az)if aA then local aO,aP=self:UO(aA,Y,aM,aN)if aO then a_=a_ or{}a_[#a_+1]={a8cc7e28733605d79703dfa757d951a5d02ac9c1df0a591a97e66645e8fe46b5=a8,f52bee9e1aa6d38575579168fd66721c631a1e5c05a0b276b374f34e1af8bfd8=aO,b07c25cfdf7ba10b43983005d4e1b1dad760fec9aaea4e25718c1d932cfee6fb=aP}end end end end;if not a_ then return nil,nil end;table.sort(a_,function(b0,b1)return b0.b07c25cfdf7ba10b43983005d4e1b1dad760fec9aaea4e25718c1d932cfee6fb<b1.b07c25cfdf7ba10b43983005d4e1b1dad760fec9aaea4e25718c1d932cfee6fb end)for a5,b2 in ipairs(a_)do local aB=self:DF(b2.f52bee9e1aa6d38575579168fd66721c631a1e5c05a0b276b374f34e1af8bfd8,b2.a8cc7e28733605d79703dfa757d951a5d02ac9c1df0a591a97e66645e8fe46b5)if aB then return aB,b2.a8cc7e28733605d79703dfa757d951a5d02ac9c1df0a591a97e66645e8fe46b5 end end;return nil,nil end;if os.clock()<z[1]then z[5]=A[3]()end;function aK:JE()local aB=self.gp;local a8=self.h2;if not(aB and a8 and aB.Parent)then return false end;local ao=a8.Character;return ao~=nil and aB:IsDescendantOf(ao)and am(a8)and an(a8)end;if tick()+z[3]<z[3]then z[8]=A[44]()end;function aK.Ir()local b3=math.clamp(tonumber(H.badf1d93e1f23add692e2ecdc97f3485294723a85966d9e9e0986bb977ff6778)or 100,0,100)if b3>=121-21 then return true end;if b3<=0 then return false end;return math.random()*100<=b3 end;if z[4]>os.clock()then z[6]=A[2]()end;function aK:Xn()return aK.Ir()end;if os.clock()<z[4]then z[8]=A[27]()end;function aK:JX()self.eY=true end;function aK:ca698b919a4fb47539f4ceee18304b29b62c971dfe29d93d3c4b1e6f6720babf()local b4=os.clock()if b4-(self.so or 0)<aK.DJ then if self.Bv and self:JE()then return self.gp end;return nil end;self.so=b4;local b5=not self.eY and b4<(self.Rr or 0)and self:JE()if b5 then return self.Bv and self.gp or nil end;self.eY=false;self.Rr=b4+aK.dN;local aB,a8=self:Wb()self.gp,self.h2=aB,a8;self.Bv=aB~=nil and self:Xn()return self.Bv and aB or nil end;function aK:kV()if self.zT then return true end;if type(getrawmetatable)~=a[5]or type(setreadonly)~=a[5]then return false end;local b6=self;local b7=type(newcclosure)==a[5]and newcclosure or function(b8)return b8 end;local U=pcall(function()local b9=getrawmetatable(game)local ba=b9.__index;local bb=b7(function(bc,bd)if b6.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 and M()and(bd==a[36]or bd==a[37])and bc==b6:d07517ac340b1caf80e4598c5e502955324d0106dd3d95d550d3613131a79589()then local aB=b6:ca698b919a4fb47539f4ceee18304b29b62c971dfe29d93d3c4b1e6f6720babf()if aB then return bd==a[36]and aB.CFrame or aB end end;return ba(bc,bd)end)setreadonly(b9,false)b9.__index=bb;setreadonly(b9,true)b6.ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479=ba;b6.e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271=bb end)if U then self.zT=true end;return self.zT end;function aK:aacce62957fa9d690a3a3450c66dfb05893d518f2ea34b3975628738db84504b()if not self:kV()then return end;if self.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 then return end;self.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392=true;self.so=0;self.Rr=0;self.eY=true;self.Bv=true;self.gp=nil;self.h2=nil;self.hT:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(R.InputBegan:Connect(function(be)if be.UserInputType==Enum.UserInputType.MouseButton1 or be.UserInputType==Enum.UserInputType.Touch then self:JX()end end))end;function aK:c0b2be3de42a99fedcd4f438d06719a8af523b0d46e50e50d4761015af9629e5()if not self.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 then return end;self.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392=false;self.gp=nil;self.h2=nil;self.so=0;self.Rr=0;self.eY=true;self.Bv=true;self.hT:d91686cab03e34c63e0a35ca3b16391fd0a00a622dc8db7085b64faf82174b43()end;if tick()<z[1]then z[5]=A[10]()end;function aK:aa5a8517498d0f2f846daf21458c3456769893e1cc8d16230f7111b62c77e48a()if not self.zT then return end;pcall(function()local b9=getrawmetatable(game)if self.e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271 and self.ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479 and rawequal(b9.__index,self.e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271)then setreadonly(b9,false)b9.__index=self.ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479;setreadonly(b9,true)end end)self.zT=false;self.ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479=nil;self.e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271=nil end;local bf=aK.BX()if z[2]>os.clock()then z[5]=A[30]()end;local bg={}bg.__index=bg;function bg.BX()return setmetatable({hT=Z.BX(),rv=nil,id=nil,K_=false},bg)end;if z[1]>os.clock()then z[7]=A[8]()end;function bg:f264681e9c08666a041aac827c1c2b757c1e84c1484ae92e18cf5ac1c5d10b17()if type(gethui)==a[5]then local U,bh=pcall(gethui)if U and bh then return bh end end;local U,bi=pcall(function()return game:GetService(a[38])end)if U and bi then return bi end;return S:FindFirstChild(a[39])end;if tick()<z[2]then z[6]=A[29]()end;function bg:kZ()if self.id and self.id.Parent then return self.id end;local U,bj=pcall(function()local bk=Instance.new(a[40])bk.Name=a[41]bk.ResetOnSpawn=false;bk.IgnoreGuiInset=true;bk.DisplayOrder=1001511-1512;bk.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;bk.Enabled=false;bk.Parent=self:f264681e9c08666a041aac827c1c2b757c1e84c1484ae92e18cf5ac1c5d10b17()local bl=Instance.new(a[42])bl.Name=a[43]bl.AnchorPoint=Vector2.new(0.5,0.5)bl.BackgroundTransparency=1;bl.BorderSizePixel=0;bl.Size=UDim2.fromOffset(304+96,400)bl.Parent=bk;local bm=Instance.new(a[44])bm.CornerRadius=UDim.new(1,0)bm.Parent=bl;local bn=Instance.new(a[45])bn.Thickness=1.5;bn.Color=Color3.fromRGB(336-81,255,255)bn.Transparency=0;bn.Parent=bl;self.rv=bk;return bl end)if U and bj then self.id=bj;self.hT:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(self.rv)return bj end;return nil end;if z[1]>os.clock()then z[6]=A[48]()end;function bg:V_()self.id=nil;local bk=self.rv;self.rv=nil;if bk then pcall(function()bk:Destroy()end)end end;function bg:u3()return H.b82d18d4b9c8992f6208b8fd8d463da9ff9f653f3ee294bf85532e78ff0865d0==true and H.bd1b3a2c6d1dfa95ed0d3c9afea379adf7b44a278fd81869f2ef2544ab1d54b0==true and bf.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392==true end;function bg:tQ()if not self:u3()then if self.rv then self.rv.Enabled=false end;return end;local bj=self:kZ()if not bj then return end;local bo=X()local bp=math.max(1,tonumber(H.aa040c1e543679fe1147d4038153c95430de0aedc3cc1ae12edf345e5ed9c4bd)or 200)bj.Size=UDim2.fromOffset(bp*2,bp*2)bj.Position=UDim2.fromOffset(bo.X,bo.Y)self.rv.Enabled=true end;function bg:b054c294d0cad1e97614a43457a4d050ba5b80d6061db2e4e1ccb3374cc9b23b()if self.K_ then return end;self.K_=true;self.hT:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(Q.RenderStepped:Connect(function()self:tQ()end))end;if z[4]>tick()then z[8]=A[18]()end;function bg:da9cfb103e858b65d36dc131d32ca35c025092db270644ceece94cb548f10d26()self.K_=false;self.hT:d91686cab03e34c63e0a35ca3b16391fd0a00a622dc8db7085b64faf82174b43()self:V_()end;local bq=bg.BX()bq:b054c294d0cad1e97614a43457a4d050ba5b80d6061db2e4e1ccb3374cc9b23b()if os.clock()<z[4]then z[5]=A[51]()end;local br=Z.BX()if tick()+z[2]<z[2]then z[7]=A[49]()end;local bs=false;local function bt()if bs then return end;bs=true;H.f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577=false;br:d91686cab03e34c63e0a35ca3b16391fd0a00a622dc8db7085b64faf82174b43()bf:c0b2be3de42a99fedcd4f438d06719a8af523b0d46e50e50d4761015af9629e5()bf:aa5a8517498d0f2f846daf21458c3456769893e1cc8d16230f7111b62c77e48a()bq:da9cfb103e858b65d36dc131d32ca35c025092db270644ceece94cb548f10d26()end;if os.clock()<z[3]then z[8]=A[22]()end;local function bu(ac)if not M()then bt()return end;H.f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577=ac==true;if H.f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577 then bf:aacce62957fa9d690a3a3450c66dfb05893d518f2ea34b3975628738db84504b()else bf:c0b2be3de42a99fedcd4f438d06719a8af523b0d46e50e50d4761015af9629e5()end end;local bv=Enum.KeyCode[H.c9611f4b11d6e23ef3b88fe758ea2e18c8e912deeb0a43edce7f096046f836ea]or Enum.KeyCode.Q;local bw=Enum.KeyCode[H.fddeceddd8ea62f7a22e11432ed6889335c37de6823c92fab0242887c7ae9b5f]or Enum.KeyCode.Zero;if z[2]>os.clock()then z[7]=A[40]()end;local bx=false;br:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(R.InputBegan:Connect(function(be,by)if by then return end;local bz=be.KeyCode;if bz==Enum.KeyCode.Unknown then return end;if bx then bx=false;if bz~=bw and bz~=Enum.KeyCode.KeypadZero then bv=bz end;return end;if bz==bw or bz==Enum.KeyCode.KeypadZero then bx=true;return end;if bz==bv then bu(not bf.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392)end end))if z[3]>tick()then z[8]=A[13]()end;local bA=nil;if tick()+z[4]<z[4]then z[8]=A[19]()end;local bB=nil;local bC=nil;if z[2]>tick()then z[8]=A[36]()end;local function bD()if bC and bC.Parent then return bC end;local bE=S:FindFirstChild(a[39])local bF=bE and bE:FindFirstChild(a[46])bF=bF and bF:FindFirstChild(a[47])bF=bF and bF:FindFirstChild(a[48])bF=bF and bF:FindFirstChild(a[49])bF=bF and bF:FindFirstChild(a[50])bC=bF;return bF end;if z[1]>tick()then z[5]=A[34]()end;local function bG()if not M()then bt()return end;if not(bA and bA.Parent)then return end;if not(bB and bB.Parent)then return end;local bH=nil;pcall(function()bH=bD()end)if bH and bH.AbsoluteSize.X>0 then local bI=bB.AbsolutePosition;local bJ=bH.AbsolutePosition;local bK=bH.AbsoluteSize;bA.AnchorPoint=Vector2.new(0.5,0)bA.Size=UDim2.fromOffset(math.max(28,bK.X),math.max(28,bK.Y))bA.Position=UDim2.fromOffset(bJ.X-bI.X+bK.X/2,bJ.Y-bI.Y+bK.Y+6)else bA.AnchorPoint=Vector2.new(1,0)bA.Size=UDim2.fromOffset(40,40)bA.Position=UDim2.new(1,-14,0,50)end end;if z[1]>os.clock()then z[6]=A[23]()end;pcall(function()local bL=Instance.new(a[40])bL.Name=a[51]bL.ResetOnSpawn=false;bL.IgnoreGuiInset=true;bL.DisplayOrder=1001346-1347;bL.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;bL.Parent=bq:f264681e9c08666a041aac827c1c2b757c1e84c1484ae92e18cf5ac1c5d10b17()local bM=Instance.new(a[42])bM.Name=a[52]bM.Active=false;bM.BackgroundTransparency=1;bM.BorderSizePixel=0;bM.Position=UDim2.fromOffset(0,0)bM.Size=UDim2.fromScale(1,1)bM.Parent=bL;local bN=Instance.new(a[53])bN.Name=a[54]bN.AnchorPoint=Vector2.new(1,0)bN.Position=UDim2.new(1,-14,0,50)bN.Size=UDim2.fromOffset(40,40)bN.BackgroundTransparency=1;bN.BorderSizePixel=0;bN.AutoButtonColor=false;bN.Text=a[12]bN.Parent=bM;bN.Activated:Connect(function()bu(not bf.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392)end)bA=bN;bB=bM;br:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(bL)end)if tick()<z[3]then z[5]=A[25]()end;bG()if tick()<z[3]then z[7]=A[50]()end;br:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(Q.RenderStepped:Connect(bG))if os.clock()<z[2]then z[5]=A[45]()end;pcall(function()G()[I]=bt end)if z[2]>tick()then z[7]=A[9]()end;G().d7597a86d428d1664c919f7038ad3791d3312b85b1d12726b031540eb393d9d3=function()local L=G()if type(L[I])==a[5]then L[I]()L[I]=nil end end;bu(H.f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577)
+local a42b523f7c8cc079c63d5b137575905ad18c192721dd52f6d47e96f109f9660f = getgenv or function()
+return _G
+end
+local b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d = {
+f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577 = true,
+b82d18d4b9c8992f6208b8fd8d463da9ff9f653f3ee294bf85532e78ff0865d0 = false,
+bd1b3a2c6d1dfa95ed0d3c9afea379adf7b44a278fd81869f2ef2544ab1d54b0 = true,
+aa040c1e543679fe1147d4038153c95430de0aedc3cc1ae12edf345e5ed9c4bd = 200,
+badf1d93e1f23add692e2ecdc97f3485294723a85966d9e9e0986bb977ff6778 = 100,
+b8a681b2f2e0304c361f0d8c858d286d2c6ebbeba32a59018bc61d47e7c12a77 = true,
+b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd = {
+Head = true,
+UpperTorso = true,
+LowerTorso = true,
+LeftUpperArm = true,
+RightUpperArm = true,
+LeftUpperLeg = true,
+RightUpperLeg = true,
+LeftLowerLeg = true,
+RightLowerLeg = true,
+},
+c9611f4b11d6e23ef3b88fe758ea2e18c8e912deeb0a43edce7f096046f836ea = "Q",
+fddeceddd8ea62f7a22e11432ed6889335c37de6823c92fab0242887c7ae9b5f = "Zero",
+}
+local b0f63f19c3d68ad030fea9fec8066704d28f571208befb738edafd971b821187 = "__vq0m9_kx"
+local e63c3698f581082f252a4d6826d62f9768cec02f4326bf0e501d1b1cdf0986b3 = "__vq0m9_gn"
+local fb1501116deb571d51679dd1af71def57708861693b5306bbf3d3ac527030a8b = 1
+pcall(function()
+local a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000 = a42b523f7c8cc079c63d5b137575905ad18c192721dd52f6d47e96f109f9660f()
+if type(a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000[b0f63f19c3d68ad030fea9fec8066704d28f571208befb738edafd971b821187]) == "function" then
+a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000[b0f63f19c3d68ad030fea9fec8066704d28f571208befb738edafd971b821187]()
+end
+fb1501116deb571d51679dd1af71def57708861693b5306bbf3d3ac527030a8b = (tonumber(a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000[e63c3698f581082f252a4d6826d62f9768cec02f4326bf0e501d1b1cdf0986b3]) or 0) + 1
+a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000[e63c3698f581082f252a4d6826d62f9768cec02f4326bf0e501d1b1cdf0986b3] = fb1501116deb571d51679dd1af71def57708861693b5306bbf3d3ac527030a8b
+end)
+local function a19b1705586911761e466d7a3e57eac90ac2fd06511433660c742c804f9e5115()
+local ffa01b455a65aa292003ec30903a99d03fe36fced9b72d6deb08d30c9b6da7c7, f6b5d8176b1f792a2b7a2493e4533d4f2e3c043ab27aa9325efd6d31ee915728 = pcall(function()
+return a42b523f7c8cc079c63d5b137575905ad18c192721dd52f6d47e96f109f9660f()[e63c3698f581082f252a4d6826d62f9768cec02f4326bf0e501d1b1cdf0986b3]
+end)
+if not ffa01b455a65aa292003ec30903a99d03fe36fced9b72d6deb08d30c9b6da7c7 then
+return true
+end
+return f6b5d8176b1f792a2b7a2493e4533d4f2e3c043ab27aa9325efd6d31ee915728 == nil or f6b5d8176b1f792a2b7a2493e4533d4f2e3c043ab27aa9325efd6d31ee915728 == fb1501116deb571d51679dd1af71def57708861693b5306bbf3d3ac527030a8b
+end
+local e9564b726eb5b27bbcdefee26d3f1e472680a8dc0d456a2f029c48898bd0896c = game:GetService("Players")
+local b487821c99e30b3b96d7039ec665df8aa5d3f8ff2c49edfc9c72b2cca6bc4581 = game:GetService("RunService")
+local ee72b1fe9fc60e0808ce8ef5ffca02d2197da178377a629aababde2b1d451631 = game:GetService("UserInputService")
+local b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f = e9564b726eb5b27bbcdefee26d3f1e472680a8dc0d456a2f029c48898bd0896c.LocalPlayer
+local function fea747e652024f824ce5184d7c69f3f86fd72f8456fb0dd11896c9850664f02d()
+local d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166, b26b6589e43169e7760a2dd49f3d6dcdeed1f406b26b40b7946e2ce712e23cdb = pcall(function()
+return ee72b1fe9fc60e0808ce8ef5ffca02d2197da178377a629aababde2b1d451631:GetPlatform()
+end)
+if d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166 and (b26b6589e43169e7760a2dd49f3d6dcdeed1f406b26b40b7946e2ce712e23cdb == Enum.Platform.Android or b26b6589e43169e7760a2dd49f3d6dcdeed1f406b26b40b7946e2ce712e23cdb == Enum.Platform.IOS) then
+return true
+end
+return ee72b1fe9fc60e0808ce8ef5ffca02d2197da178377a629aababde2b1d451631.TouchEnabled and not ee72b1fe9fc60e0808ce8ef5ffca02d2197da178377a629aababde2b1d451631.KeyboardEnabled
+end
+local e3696ba7ef25dbc789d05ff162725f7a70977bc4c559349cbc38e115cfb18ef8 = fea747e652024f824ce5184d7c69f3f86fd72f8456fb0dd11896c9850664f02d()
+local function fcdaf944c05116367b76a325835ae77d58d4734dcc1e8cdd0909c704cdc168e2()
+if e3696ba7ef25dbc789d05ff162725f7a70977bc4c559349cbc38e115cfb18ef8 then
+local d758ed173e043ec04d699044b9eadd90035a54ab6f4f6cbc51d3d768344de00b = workspace.CurrentCamera
+return d758ed173e043ec04d699044b9eadd90035a54ab6f4f6cbc51d3d768344de00b and (d758ed173e043ec04d699044b9eadd90035a54ab6f4f6cbc51d3d768344de00b.ViewportSize / 2) or Vector2.zero
+end
+return ee72b1fe9fc60e0808ce8ef5ffca02d2197da178377a629aababde2b1d451631:GetMouseLocation()
+end
+local d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f = {}
+d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f.__index = d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f
+function d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f.bf895c602340134494869e53aa321c0d4eb94a7a2fdd82b79368b8f19a325e30()
+return setmetatable({ d4f09966302b36ca1ed7300af898fca2ef0b8469224b603da82542bb57f5a0a5 = {} }, d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f)
+end
+function d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(a09a73437dc3efe1552ee667a55ba937203d174322a549da8625b92e5ae2d2ce)
+self.d4f09966302b36ca1ed7300af898fca2ef0b8469224b603da82542bb57f5a0a5[#self.d4f09966302b36ca1ed7300af898fca2ef0b8469224b603da82542bb57f5a0a5 + 1] = a09a73437dc3efe1552ee667a55ba937203d174322a549da8625b92e5ae2d2ce
+return a09a73437dc3efe1552ee667a55ba937203d174322a549da8625b92e5ae2d2ce
+end
+function d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f:d91686cab03e34c63e0a35ca3b16391fd0a00a622dc8db7085b64faf82174b43()
+for c6e351e62444327e5fd15c56413b4dbe7353d2b6d1a94452e0c34e58a0a78178 = #self.d4f09966302b36ca1ed7300af898fca2ef0b8469224b603da82542bb57f5a0a5, 1, -1 do
+local f941bedda538d52e4aac8b0687d887b5e0cf06cf09717cda1ff5339c4a40f66d = self.d4f09966302b36ca1ed7300af898fca2ef0b8469224b603da82542bb57f5a0a5[c6e351e62444327e5fd15c56413b4dbe7353d2b6d1a94452e0c34e58a0a78178]
+self.d4f09966302b36ca1ed7300af898fca2ef0b8469224b603da82542bb57f5a0a5[c6e351e62444327e5fd15c56413b4dbe7353d2b6d1a94452e0c34e58a0a78178] = nil
+local edc42ff36039479cbeade27d8b5f97ebe1d560efe98ea37b5f9aa4c90f117e13 = typeof(f941bedda538d52e4aac8b0687d887b5e0cf06cf09717cda1ff5339c4a40f66d)
+if edc42ff36039479cbeade27d8b5f97ebe1d560efe98ea37b5f9aa4c90f117e13 == "RBXScriptConnection" then
+pcall(function()
+f941bedda538d52e4aac8b0687d887b5e0cf06cf09717cda1ff5339c4a40f66d:Disconnect()
+end)
+elseif edc42ff36039479cbeade27d8b5f97ebe1d560efe98ea37b5f9aa4c90f117e13 == "Instance" then
+pcall(function()
+f941bedda538d52e4aac8b0687d887b5e0cf06cf09717cda1ff5339c4a40f66d:Destroy()
+end)
+elseif edc42ff36039479cbeade27d8b5f97ebe1d560efe98ea37b5f9aa4c90f117e13 == "function" then
+pcall(f941bedda538d52e4aac8b0687d887b5e0cf06cf09717cda1ff5339c4a40f66d)
+end
+end
+end
+local e4a34dbf3c912ec8926b4f0e8dfb9436e805ff8b03c19cedb85385a2a3d2b8dd = {
+8343463328,
+}
+local f1caec3ed03f39211817c7c87df3af93bf43b0fbdb600c1f4308c66fcf4fa3eb = {}
+for _, e96097bf32e0d0b13d8b7cb31e7f180959e6294470e9b1b8c7bb5341a030d2e6 in ipairs(e4a34dbf3c912ec8926b4f0e8dfb9436e805ff8b03c19cedb85385a2a3d2b8dd) do
+f1caec3ed03f39211817c7c87df3af93bf43b0fbdb600c1f4308c66fcf4fa3eb[e96097bf32e0d0b13d8b7cb31e7f180959e6294470e9b1b8c7bb5341a030d2e6] = true
+end
+local f835b693cafedac7e7522e75befcee01d24df552758cb2f9e31820739cdc0b63 = {}
+function f835b693cafedac7e7522e75befcee01d24df552758cb2f9e31820739cdc0b63:f1bd8fbac4b56214706629850e434bb52bcb7b5414d73e9fca9ce31323bd12e4(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+if not ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c then
+return false
+end
+return f1caec3ed03f39211817c7c87df3af93bf43b0fbdb600c1f4308c66fcf4fa3eb[ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c.UserId] == true
+end
+local function fbd477a15cc843c6e6e7b4cf33853c09e8bf7d63f702e90545efb9b4b808f074(f420d68f02bbac126c2b17d75a56a70b6a5ac209fbbabfe631f4690043a914fd, fb8a7dedfa30c2ea48df6a15e2f4f669b4ee04a82b921abf77622b4555ff2746)
+if not f420d68f02bbac126c2b17d75a56a70b6a5ac209fbbabfe631f4690043a914fd then
+return false
+end
+local f3a2df317169d0e37f609e9abc689eaeae90cb258e71f1761c9e1b80a41de5b6 = f420d68f02bbac126c2b17d75a56a70b6a5ac209fbbabfe631f4690043a914fd:GetAttribute(fb8a7dedfa30c2ea48df6a15e2f4f669b4ee04a82b921abf77622b4555ff2746)
+return typeof(f3a2df317169d0e37f609e9abc689eaeae90cb258e71f1761c9e1b80a41de5b6) == "string" and f3a2df317169d0e37f609e9abc689eaeae90cb258e71f1761c9e1b80a41de5b6 ~= ""
+end
+local function b29b016eee5ac1a0df77ca89c9850261544fcc3ae3324f5194585e8df5aea07b(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+return fbd477a15cc843c6e6e7b4cf33853c09e8bf7d63f702e90545efb9b4b808f074(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c, "Game")
+end
+local function e947765819d3963edd0d57e8c1ac5041458a079a3d58716530a0ec4509192198(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+return b29b016eee5ac1a0df77ca89c9850261544fcc3ae3324f5194585e8df5aea07b(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c) and fbd477a15cc843c6e6e7b4cf33853c09e8bf7d63f702e90545efb9b4b808f074(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c, "Map")
+end
+local e415c78d6949113d1ee0c78932cc111cfccb090d443d987f5996dfbdcd62d086 = {}
+function e415c78d6949113d1ee0c78932cc111cfccb090d443d987f5996dfbdcd62d086:fe6fc4556ca5b096c98f4fa8042e6436329990e787b4738e69055446a82d07e1(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+if ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c == b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f then
+return false
+end
+if not e947765819d3963edd0d57e8c1ac5041458a079a3d58716530a0ec4509192198(b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f) or not e947765819d3963edd0d57e8c1ac5041458a079a3d58716530a0ec4509192198(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c) then
+return false
+end
+local b6eeac7428202c448b3f84b71a81126d81feb47fe3c05be34ddffd59c53d6fe0 = b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f:GetAttribute("Game")
+local f33297c7ce498275a4ba6c47eeeaa958b57513c26fe790581a7c31e46833d01a = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c:GetAttribute("Game")
+if b6eeac7428202c448b3f84b71a81126d81feb47fe3c05be34ddffd59c53d6fe0 ~= f33297c7ce498275a4ba6c47eeeaa958b57513c26fe790581a7c31e46833d01a then
+return false
+end
+local c03cc620c3232547b30692e049e4cc116977155223fae3ab0defbd81916d3cb6 = b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f:GetAttribute("Map")
+local bafc5b33aae0cc926026bc9935005514d63361ac245a365a3e8d7c526f9798d3 = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c:GetAttribute("Map")
+if c03cc620c3232547b30692e049e4cc116977155223fae3ab0defbd81916d3cb6 ~= bafc5b33aae0cc926026bc9935005514d63361ac245a365a3e8d7c526f9798d3 then
+return false
+end
+local fdff71c1c624445ebc254c4ad130618b98a881b65f666b51ec7b0c370c5e961e = b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f:GetAttribute("Team")
+local ee2edf526a0750a096ab373e59c620ce7b90a4bdf4e2a6aa4577ddf760a913b5 = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c:GetAttribute("Team")
+if typeof(fdff71c1c624445ebc254c4ad130618b98a881b65f666b51ec7b0c370c5e961e) ~= "string" or fdff71c1c624445ebc254c4ad130618b98a881b65f666b51ec7b0c370c5e961e == "" then
+return false
+end
+if typeof(ee2edf526a0750a096ab373e59c620ce7b90a4bdf4e2a6aa4577ddf760a913b5) ~= "string" or ee2edf526a0750a096ab373e59c620ce7b90a4bdf4e2a6aa4577ddf760a913b5 == "" then
+return false
+end
+return fdff71c1c624445ebc254c4ad130618b98a881b65f666b51ec7b0c370c5e961e ~= ee2edf526a0750a096ab373e59c620ce7b90a4bdf4e2a6aa4577ddf760a913b5
+end
+local function e4799e5a563f4db4dc0d0687ac589c12a9f5c80d6278b0d82862cc3a18c835df(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+if not e415c78d6949113d1ee0c78932cc111cfccb090d443d987f5996dfbdcd62d086:fe6fc4556ca5b096c98f4fa8042e6436329990e787b4738e69055446a82d07e1(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c) then
+return false
+end
+if f835b693cafedac7e7522e75befcee01d24df552758cb2f9e31820739cdc0b63:f1bd8fbac4b56214706629850e434bb52bcb7b5414d73e9fca9ce31323bd12e4(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c) then
+return false
+end
+return true
+end
+local function c25cc7696866c1db17666c223f4df731245ca5ff80d9b94ce7e7f18626701d18(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+local b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c and ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c.Character
+if not b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b then
+return false
+end
+local bc7736ef4bb205045c3766e4501565dafb8218af38e4d41fb115c81b06a492ed = b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b:FindFirstChildOfClass("Humanoid")
+return bc7736ef4bb205045c3766e4501565dafb8218af38e4d41fb115c81b06a492ed ~= nil and bc7736ef4bb205045c3766e4501565dafb8218af38e4d41fb115c81b06a492ed.Health > 0
+end
+local function f615d88a81b7708416dbc0f7fa06e620f37004e4f316ee433cc589e10f54429f(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+local b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c and ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c.Character
+if not b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b then
+return nil
+end
+local f29824af9098fad8d462938f5f4431f3953c1ccc0780466127345010318209f9 = b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b:FindFirstChild("HumanoidRootPart")
+if f29824af9098fad8d462938f5f4431f3953c1ccc0780466127345010318209f9 and f29824af9098fad8d462938f5f4431f3953c1ccc0780466127345010318209f9:IsA("BasePart") then
+return f29824af9098fad8d462938f5f4431f3953c1ccc0780466127345010318209f9
+end
+return nil
+end
+local d75d0b9d2547598982187b6d9709fcc4fe628c03343d8f9c570d34a36dab478c = {
+"Head",
+"LeftLowerArm",
+"LeftHand",
+"LeftLowerLeg",
+"LeftFoot",
+"LeftUpperArm",
+"LeftUpperLeg",
+"LowerTorso",
+"RightLowerArm",
+"RightHand",
+"RightLowerLeg",
+"RightFoot",
+"RightUpperArm",
+"RightUpperLeg",
+"UpperTorso",
+}
+local f40a32c7aae5f5c388064c843354e860300d384bd86af40b96780c88865777d4 = {}
+for _, b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204 in ipairs(d75d0b9d2547598982187b6d9709fcc4fe628c03343d8f9c570d34a36dab478c) do
+f40a32c7aae5f5c388064c843354e860300d384bd86af40b96780c88865777d4[b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204] = true
+end
+local function aa15ad27702b6bfc1d36d2b619b554ae93bdb19a2b71ddc78d712419f10e3dc4()
+if type(b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd) ~= "table" then
+b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd = {}
+end
+for b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204, f3a2df317169d0e37f609e9abc689eaeae90cb258e71f1761c9e1b80a41de5b6 in pairs(b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd) do
+if f40a32c7aae5f5c388064c843354e860300d384bd86af40b96780c88865777d4[b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204] == nil then
+b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd[b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204] = nil
+elseif type(f3a2df317169d0e37f609e9abc689eaeae90cb258e71f1761c9e1b80a41de5b6) ~= "boolean" then
+b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd[b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204] = f3a2df317169d0e37f609e9abc689eaeae90cb258e71f1761c9e1b80a41de5b6 == true
+end
+end
+end
+local function b8fc8646b288196da7f1b46d501b919ac186301b76d91f7eaa47069d99032f05()
+aa15ad27702b6bfc1d36d2b619b554ae93bdb19a2b71ddc78d712419f10e3dc4()
+if not b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b8a681b2f2e0304c361f0d8c858d286d2c6ebbeba32a59018bc61d47e7c12a77 then
+return { "Head", "UpperTorso", "HumanoidRootPart" }
+end
+local a6b2df0d3d34cf8568dc2a98b734e852413884b0a3a05bae87a3079a731cc059 = {}
+for _, b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204 in ipairs(d75d0b9d2547598982187b6d9709fcc4fe628c03343d8f9c570d34a36dab478c) do
+if b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b5d0e77317730c4e49b6464ebdfce61eb4ca6b955038414de46c866bfa40bacd[b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204] == true then
+a6b2df0d3d34cf8568dc2a98b734e852413884b0a3a05bae87a3079a731cc059[#a6b2df0d3d34cf8568dc2a98b734e852413884b0a3a05bae87a3079a731cc059 + 1] = b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204
+end
+end
+if #a6b2df0d3d34cf8568dc2a98b734e852413884b0a3a05bae87a3079a731cc059 == 0 then
+return { "UpperTorso", "HumanoidRootPart" }
+end
+return a6b2df0d3d34cf8568dc2a98b734e852413884b0a3a05bae87a3079a731cc059
+end
+local function a2b18325e64c62833b012bddd3d63ea97d07b52dfd66dac0f92ac3f31981d815(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c, e41ca2fbc85a87d9d144c2ee7bb216da7f1df3462a8443164a9d91f0263dcd55)
+local b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c and ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c.Character
+if not b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b then
+return nil
+end
+e41ca2fbc85a87d9d144c2ee7bb216da7f1df3462a8443164a9d91f0263dcd55 = e41ca2fbc85a87d9d144c2ee7bb216da7f1df3462a8443164a9d91f0263dcd55 or b8fc8646b288196da7f1b46d501b919ac186301b76d91f7eaa47069d99032f05()
+local d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c = {}
+for _, b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204 in ipairs(e41ca2fbc85a87d9d144c2ee7bb216da7f1df3462a8443164a9d91f0263dcd55) do
+local a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 = b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b:FindFirstChild(b83e634f8587b92d6afea1b8802d0be0da76a184a32577b2a4b7d1f3e7bb6204)
+if a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 and a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022:IsA("BasePart") then
+d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c[#d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c + 1] = a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022
+end
+end
+if #d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c == 0 then
+return nil
+end
+return d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c
+end
+local b797b9df3ec534eb2c61a041e2c03fde1549161ae00961730a0738fdfe494eff = nil
+local fff4c38bd51b94ebdfac0cf78c531a4b6c6d9162a0bc7f14ae32255c22f08cbc = false
+local function a90e2fe06721148c9952ae0454838aa3903aa2798471c913bb76c6f546f7c238(b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b)
+if b797b9df3ec534eb2c61a041e2c03fde1549161ae00961730a0738fdfe494eff and fff4c38bd51b94ebdfac0cf78c531a4b6c6d9162a0bc7f14ae32255c22f08cbc == b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b then
+return b797b9df3ec534eb2c61a041e2c03fde1549161ae00961730a0738fdfe494eff
+end
+local dee8cfa7e3291466ffe3fab58a7a464ff5e78e7c2d42f1aa3cdccbd6f13b338b = b797b9df3ec534eb2c61a041e2c03fde1549161ae00961730a0738fdfe494eff
+if not dee8cfa7e3291466ffe3fab58a7a464ff5e78e7c2d42f1aa3cdccbd6f13b338b then
+dee8cfa7e3291466ffe3fab58a7a464ff5e78e7c2d42f1aa3cdccbd6f13b338b = RaycastParams.new()
+dee8cfa7e3291466ffe3fab58a7a464ff5e78e7c2d42f1aa3cdccbd6f13b338b.FilterType = Enum.RaycastFilterType.Exclude
+dee8cfa7e3291466ffe3fab58a7a464ff5e78e7c2d42f1aa3cdccbd6f13b338b.IgnoreWater = true
+b797b9df3ec534eb2c61a041e2c03fde1549161ae00961730a0738fdfe494eff = dee8cfa7e3291466ffe3fab58a7a464ff5e78e7c2d42f1aa3cdccbd6f13b338b
+end
+dee8cfa7e3291466ffe3fab58a7a464ff5e78e7c2d42f1aa3cdccbd6f13b338b.FilterDescendantsInstances = b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b and { b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b } or {}
+fff4c38bd51b94ebdfac0cf78c531a4b6c6d9162a0bc7f14ae32255c22f08cbc = b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b
+return dee8cfa7e3291466ffe3fab58a7a464ff5e78e7c2d42f1aa3cdccbd6f13b338b
+end
+local function cbb3ff49a784fb85c2b98cff9177b06a8f368d995ac6bf68fb06efe145affd46(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c, a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022)
+local b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b = b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f.Character
+local f29824af9098fad8d462938f5f4431f3953c1ccc0780466127345010318209f9 = f615d88a81b7708416dbc0f7fa06e620f37004e4f316ee433cc589e10f54429f(b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f)
+local f7396cdd1d5a8786a7a3159810c8cdbb990f85c3a6461b8ab202ebcb89e86411 = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c and ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c.Character
+if not (b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b and f29824af9098fad8d462938f5f4431f3953c1ccc0780466127345010318209f9 and f7396cdd1d5a8786a7a3159810c8cdbb990f85c3a6461b8ab202ebcb89e86411 and a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 and a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022:IsA("BasePart")) then
+return false
+end
+local aa3115da607755b48da79191320a92adf712750f421eb73b69b2a42b640a8af2 = a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022.Position - f29824af9098fad8d462938f5f4431f3953c1ccc0780466127345010318209f9.Position
+if aa3115da607755b48da79191320a92adf712750f421eb73b69b2a42b640a8af2.Magnitude <= 0 then
+return false
+end
+local f67a2d4c77afa87ec0534de81a5f96d244536d98c426838b19acf287fee6f9b0 = workspace:Raycast(f29824af9098fad8d462938f5f4431f3953c1ccc0780466127345010318209f9.Position, aa3115da607755b48da79191320a92adf712750f421eb73b69b2a42b640a8af2, a90e2fe06721148c9952ae0454838aa3903aa2798471c913bb76c6f546f7c238(b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b))
+return (not f67a2d4c77afa87ec0534de81a5f96d244536d98c426838b19acf287fee6f9b0) or (f67a2d4c77afa87ec0534de81a5f96d244536d98c426838b19acf287fee6f9b0.Instance and f67a2d4c77afa87ec0534de81a5f96d244536d98c426838b19acf287fee6f9b0.Instance:IsDescendantOf(f7396cdd1d5a8786a7a3159810c8cdbb990f85c3a6461b8ab202ebcb89e86411))
+end
+local d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63 = {}
+d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.__index = d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63
+d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.f01bc6496d96ec6060a2e700622e2b0174470459bd33653b9f90dd46f9eee91b = 0.03
+d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.c6baefdf839466dd972780e5766470ac0d072d47127704448eb2e23931a22383 = 0.45
+d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.d00a43d2732844c3d2adf8d37e37435bede4cc7a9318fb280bd54fa4c4b5b646 = {
+UpperTorso = 34,
+LowerTorso = 22,
+HumanoidRootPart = 22,
+Head = 14,
+LeftUpperArm = 5,
+RightUpperArm = 5,
+LeftUpperLeg = 5,
+RightUpperLeg = 5,
+LeftLowerArm = 3,
+RightLowerArm = 3,
+LeftLowerLeg = 3,
+RightLowerLeg = 3,
+LeftHand = 2,
+RightHand = 2,
+LeftFoot = 2,
+RightFoot = 2,
+}
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.bf895c602340134494869e53aa321c0d4eb94a7a2fdd82b79368b8f19a325e30()
+return setmetatable({
+e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 = false,
+c7ae9af31f78145f2b356ef238704a2e7ecfb583e24535c80f244e10aa00bd93 = false,
+e13b9a519dec31aefa0eb019855d3cb0829ac5420411b62b688a69a36553b36c = nil,
+a1c69be617454a0ae07920d2112104816d6d18dae6198ecc5c101c9dc7d216a1 = d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f.bf895c602340134494869e53aa321c0d4eb94a7a2fdd82b79368b8f19a325e30(),
+b447270be3fbcd18e3c324f49765b126b546130198b800f9b3b2425c21c74b1b = 0,
+d55cc7ce5e51fa06e8ae65101d804166be9a6ce3fb387cdd835156415aecf96c = nil,
+c01066ff808af3e020da2645256e8bde0e80142e21f9d68ef80c0c4d6bfa0251 = nil,
+e54cd7acb0d4672095d024d09d19741e3970fbb19e39a497bdb00b38592415da = 0,
+e8b8063d89dc43da0a023539540007a6a6b1e23d5693f4de124ead8e12a5806c = true,
+e28989d923e2b40ebe902ffb507d21c3e595c6763d22dc8e348ccbdd4b6dbbe3 = true,
+}, d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63)
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:d07517ac340b1caf80e4598c5e502955324d0106dd3d95d550d3613131a79589()
+if self.e13b9a519dec31aefa0eb019855d3cb0829ac5420411b62b688a69a36553b36c then
+return self.e13b9a519dec31aefa0eb019855d3cb0829ac5420411b62b688a69a36553b36c
+end
+local d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166, b9d374a85d3fe9087e2e86a4ad22858e59e9ab8636db6344cd355e10c5e5bc72 = pcall(function()
+return b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f:GetMouse()
+end)
+if d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166 and b9d374a85d3fe9087e2e86a4ad22858e59e9ab8636db6344cd355e10c5e5bc72 then
+self.e13b9a519dec31aefa0eb019855d3cb0829ac5420411b62b688a69a36553b36c = b9d374a85d3fe9087e2e86a4ad22858e59e9ab8636db6344cd355e10c5e5bc72
+end
+return self.e13b9a519dec31aefa0eb019855d3cb0829ac5420411b62b688a69a36553b36c
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:aaa61923c1999a009435a389865589391164d429c100da17f75330b8b3812e29(d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c, d758ed173e043ec04d699044b9eadd90035a54ab6f4f6cbc51d3d768344de00b, b377e661c527366149e8255daa87f4d938ce9e19b7863a3ab7b7f45c37b3db4b, ac4f28769c141a8caa5c6c10658f4b2d9b5863feea9f35421efc35ba4e891d35)
+local d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6, a26e1fdf58f0d1f0672947d39adaa7cff0611f73c6998748f326e13b91fc42ab = nil, nil
+for _, a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 in ipairs(d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c) do
+if a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 and a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022:IsA("BasePart") then
+local d1a22d7576086f80bae99aa58837e63aacfb451ea26f8b92512477eed11c6ea9, a505d7efb28f7e28e2081df2e6fb6f9f322145f7f8b3ccf3aedd4464e63ad46f = d758ed173e043ec04d699044b9eadd90035a54ab6f4f6cbc51d3d768344de00b:WorldToViewportPoint(a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022.Position)
+if a505d7efb28f7e28e2081df2e6fb6f9f322145f7f8b3ccf3aedd4464e63ad46f then
+local e887115296daffa48b0e43b7b88b12cf1a99a74b669e307927c7c0f244e0ae9c = (Vector2.new(d1a22d7576086f80bae99aa58837e63aacfb451ea26f8b92512477eed11c6ea9.X, d1a22d7576086f80bae99aa58837e63aacfb451ea26f8b92512477eed11c6ea9.Y) - b377e661c527366149e8255daa87f4d938ce9e19b7863a3ab7b7f45c37b3db4b).Magnitude
+if e887115296daffa48b0e43b7b88b12cf1a99a74b669e307927c7c0f244e0ae9c <= ac4f28769c141a8caa5c6c10658f4b2d9b5863feea9f35421efc35ba4e891d35 then
+d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6 = d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6 or {}
+d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6[#d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6 + 1] = a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022
+if not a26e1fdf58f0d1f0672947d39adaa7cff0611f73c6998748f326e13b91fc42ab or e887115296daffa48b0e43b7b88b12cf1a99a74b669e307927c7c0f244e0ae9c < a26e1fdf58f0d1f0672947d39adaa7cff0611f73c6998748f326e13b91fc42ab then
+a26e1fdf58f0d1f0672947d39adaa7cff0611f73c6998748f326e13b91fc42ab = e887115296daffa48b0e43b7b88b12cf1a99a74b669e307927c7c0f244e0ae9c
+end
+end
+end
+end
+end
+return d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6, a26e1fdf58f0d1f0672947d39adaa7cff0611f73c6998748f326e13b91fc42ab
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.a8fc753c3ae92e977444af4810919709ba6e78523aa5f4ffa3c4b1f5883166c0(d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c, c28330862b69fae2aefc6527b50875cf775afe4e9799f70a4e8bfa96b435b3d6)
+local dd6018e6201a064421251d718144588b47e05bfdb3a13e5a5ea7b812b0171678, cf54ae3ec22c70de589c8a97b15fab8c258bec66ee850db3350e766499a857c8, ee10357b3c8c51dfab836b623fe72d46268b4dcd281d1c2e398963c5e2b78bea = {}, {}, 0
+for _, a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 in ipairs(d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c) do
+local a8af210ca2dd78fdf6243388feb3d56c16384d3de8f35f1f9cdef450d9803a47 = d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.d00a43d2732844c3d2adf8d37e37435bede4cc7a9318fb280bd54fa4c4b5b646[a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022.Name] or 1
+dd6018e6201a064421251d718144588b47e05bfdb3a13e5a5ea7b812b0171678[#dd6018e6201a064421251d718144588b47e05bfdb3a13e5a5ea7b812b0171678 + 1] = a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022
+cf54ae3ec22c70de589c8a97b15fab8c258bec66ee850db3350e766499a857c8[#cf54ae3ec22c70de589c8a97b15fab8c258bec66ee850db3350e766499a857c8 + 1] = a8af210ca2dd78fdf6243388feb3d56c16384d3de8f35f1f9cdef450d9803a47
+ee10357b3c8c51dfab836b623fe72d46268b4dcd281d1c2e398963c5e2b78bea = ee10357b3c8c51dfab836b623fe72d46268b4dcd281d1c2e398963c5e2b78bea + a8af210ca2dd78fdf6243388feb3d56c16384d3de8f35f1f9cdef450d9803a47
+end
+while #dd6018e6201a064421251d718144588b47e05bfdb3a13e5a5ea7b812b0171678 > 0 and ee10357b3c8c51dfab836b623fe72d46268b4dcd281d1c2e398963c5e2b78bea > 0 do
+local afb2d25bd96e825fa2f76fd40049b9005837089238be4c711fde3adc8fe1e7f6, ad0fd1ae1da2b22ac7e1ff0b71d370d8ca5e088225ddbffe8762540f2b2cb086 = math.random() * ee10357b3c8c51dfab836b623fe72d46268b4dcd281d1c2e398963c5e2b78bea, #dd6018e6201a064421251d718144588b47e05bfdb3a13e5a5ea7b812b0171678
+local b377e661c527366149e8255daa87f4d938ce9e19b7863a3ab7b7f45c37b3db4b = 0
+for c6e351e62444327e5fd15c56413b4dbe7353d2b6d1a94452e0c34e58a0a78178 = 1, #dd6018e6201a064421251d718144588b47e05bfdb3a13e5a5ea7b812b0171678 do
+b377e661c527366149e8255daa87f4d938ce9e19b7863a3ab7b7f45c37b3db4b = b377e661c527366149e8255daa87f4d938ce9e19b7863a3ab7b7f45c37b3db4b + cf54ae3ec22c70de589c8a97b15fab8c258bec66ee850db3350e766499a857c8[c6e351e62444327e5fd15c56413b4dbe7353d2b6d1a94452e0c34e58a0a78178]
+if afb2d25bd96e825fa2f76fd40049b9005837089238be4c711fde3adc8fe1e7f6 <= b377e661c527366149e8255daa87f4d938ce9e19b7863a3ab7b7f45c37b3db4b then
+ad0fd1ae1da2b22ac7e1ff0b71d370d8ca5e088225ddbffe8762540f2b2cb086 = c6e351e62444327e5fd15c56413b4dbe7353d2b6d1a94452e0c34e58a0a78178
+break
+end
+end
+local a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 = dd6018e6201a064421251d718144588b47e05bfdb3a13e5a5ea7b812b0171678[ad0fd1ae1da2b22ac7e1ff0b71d370d8ca5e088225ddbffe8762540f2b2cb086]
+if c28330862b69fae2aefc6527b50875cf775afe4e9799f70a4e8bfa96b435b3d6(a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022) then
+return a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022
+end
+ee10357b3c8c51dfab836b623fe72d46268b4dcd281d1c2e398963c5e2b78bea = ee10357b3c8c51dfab836b623fe72d46268b4dcd281d1c2e398963c5e2b78bea - cf54ae3ec22c70de589c8a97b15fab8c258bec66ee850db3350e766499a857c8[ad0fd1ae1da2b22ac7e1ff0b71d370d8ca5e088225ddbffe8762540f2b2cb086]
+table.remove(dd6018e6201a064421251d718144588b47e05bfdb3a13e5a5ea7b812b0171678, ad0fd1ae1da2b22ac7e1ff0b71d370d8ca5e088225ddbffe8762540f2b2cb086)
+table.remove(cf54ae3ec22c70de589c8a97b15fab8c258bec66ee850db3350e766499a857c8, ad0fd1ae1da2b22ac7e1ff0b71d370d8ca5e088225ddbffe8762540f2b2cb086)
+end
+return nil
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:c1dc0d57cc3bf25258b2130e7fbcc6480a89303ba939952670afd0c4b66056df(d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c, ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+return d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.a8fc753c3ae92e977444af4810919709ba6e78523aa5f4ffa3c4b1f5883166c0(d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c, function(a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022)
+return cbb3ff49a784fb85c2b98cff9177b06a8f368d995ac6bf68fb06efe145affd46(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c, a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022)
+end)
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:bc30fd30d51128f03ac8ec4f2c384a58a1b690164cfd856ba9e262467f0157fc()
+local d758ed173e043ec04d699044b9eadd90035a54ab6f4f6cbc51d3d768344de00b = workspace.CurrentCamera
+if not d758ed173e043ec04d699044b9eadd90035a54ab6f4f6cbc51d3d768344de00b then
+return nil, nil
+end
+local b377e661c527366149e8255daa87f4d938ce9e19b7863a3ab7b7f45c37b3db4b = fcdaf944c05116367b76a325835ae77d58d4734dcc1e8cdd0909c704cdc168e2()
+local ac4f28769c141a8caa5c6c10658f4b2d9b5863feea9f35421efc35ba4e891d35 = math.huge
+if b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b82d18d4b9c8992f6208b8fd8d463da9ff9f653f3ee294bf85532e78ff0865d0 then
+ac4f28769c141a8caa5c6c10658f4b2d9b5863feea9f35421efc35ba4e891d35 = tonumber(b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.aa040c1e543679fe1147d4038153c95430de0aedc3cc1ae12edf345e5ed9c4bd) or 200
+end
+local e41ca2fbc85a87d9d144c2ee7bb216da7f1df3462a8443164a9d91f0263dcd55 = b8fc8646b288196da7f1b46d501b919ac186301b76d91f7eaa47069d99032f05()
+local d4ba5e4fba67dfd48e5add655782c5598b3aec8896a783027a6faa0490e1410e = nil
+for _, ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c in ipairs(e9564b726eb5b27bbcdefee26d3f1e472680a8dc0d456a2f029c48898bd0896c:GetPlayers()) do
+if ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c ~= b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f and e4799e5a563f4db4dc0d0687ac589c12a9f5c80d6278b0d82862cc3a18c835df(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c) and c25cc7696866c1db17666c223f4df731245ca5ff80d9b94ce7e7f18626701d18(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c) then
+local d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c = a2b18325e64c62833b012bddd3d63ea97d07b52dfd66dac0f92ac3f31981d815(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c, e41ca2fbc85a87d9d144c2ee7bb216da7f1df3462a8443164a9d91f0263dcd55)
+if d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c then
+local d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6, a26e1fdf58f0d1f0672947d39adaa7cff0611f73c6998748f326e13b91fc42ab = self:aaa61923c1999a009435a389865589391164d429c100da17f75330b8b3812e29(d5d6983d271cc4a0316e4bc5808528f6540739ce07c5bcb2bc3f6d432577de6c, d758ed173e043ec04d699044b9eadd90035a54ab6f4f6cbc51d3d768344de00b, b377e661c527366149e8255daa87f4d938ce9e19b7863a3ab7b7f45c37b3db4b, ac4f28769c141a8caa5c6c10658f4b2d9b5863feea9f35421efc35ba4e891d35)
+if d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6 then
+d4ba5e4fba67dfd48e5add655782c5598b3aec8896a783027a6faa0490e1410e = d4ba5e4fba67dfd48e5add655782c5598b3aec8896a783027a6faa0490e1410e or {}
+d4ba5e4fba67dfd48e5add655782c5598b3aec8896a783027a6faa0490e1410e[#d4ba5e4fba67dfd48e5add655782c5598b3aec8896a783027a6faa0490e1410e + 1] = { a8cc7e28733605d79703dfa757d951a5d02ac9c1df0a591a97e66645e8fe46b5 = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c, f52bee9e1aa6d38575579168fd66721c631a1e5c05a0b276b374f34e1af8bfd8 = d24204a2f11448dfb7e24636922c17d35b1169d1d6b76e3924efe8113497fab6, b07c25cfdf7ba10b43983005d4e1b1dad760fec9aaea4e25718c1d932cfee6fb = a26e1fdf58f0d1f0672947d39adaa7cff0611f73c6998748f326e13b91fc42ab }
+end
+end
+end
+end
+if not d4ba5e4fba67dfd48e5add655782c5598b3aec8896a783027a6faa0490e1410e then
+return nil, nil
+end
+table.sort(d4ba5e4fba67dfd48e5add655782c5598b3aec8896a783027a6faa0490e1410e, function(b9786e70c72acfc72ce96cd418614a1b27d27539e5a21cfd09eba16d58116902, b7627d00778d73b73e5c7f64af239090a9333403e1b594b9e3d025c5bd6b0f94)
+return b9786e70c72acfc72ce96cd418614a1b27d27539e5a21cfd09eba16d58116902.b07c25cfdf7ba10b43983005d4e1b1dad760fec9aaea4e25718c1d932cfee6fb < b7627d00778d73b73e5c7f64af239090a9333403e1b594b9e3d025c5bd6b0f94.b07c25cfdf7ba10b43983005d4e1b1dad760fec9aaea4e25718c1d932cfee6fb
+end)
+for _, d66673c9fcbf99c5b49b3f243b1e80a0cad04027b16ed58ebe46bbfe6a5d7222 in ipairs(d4ba5e4fba67dfd48e5add655782c5598b3aec8896a783027a6faa0490e1410e) do
+local a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 = self:c1dc0d57cc3bf25258b2130e7fbcc6480a89303ba939952670afd0c4b66056df(d66673c9fcbf99c5b49b3f243b1e80a0cad04027b16ed58ebe46bbfe6a5d7222.f52bee9e1aa6d38575579168fd66721c631a1e5c05a0b276b374f34e1af8bfd8, d66673c9fcbf99c5b49b3f243b1e80a0cad04027b16ed58ebe46bbfe6a5d7222.a8cc7e28733605d79703dfa757d951a5d02ac9c1df0a591a97e66645e8fe46b5)
+if a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 then
+return a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022, d66673c9fcbf99c5b49b3f243b1e80a0cad04027b16ed58ebe46bbfe6a5d7222.a8cc7e28733605d79703dfa757d951a5d02ac9c1df0a591a97e66645e8fe46b5
+end
+end
+return nil, nil
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:cb2d553fc5e179036836c7feea496b345531fbf81f11dfab40db862466c6322e()
+local a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 = self.d55cc7ce5e51fa06e8ae65101d804166be9a6ce3fb387cdd835156415aecf96c
+local ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c = self.c01066ff808af3e020da2645256e8bde0e80142e21f9d68ef80c0c4d6bfa0251
+if not (a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 and ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c and a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022.Parent) then
+return false
+end
+local b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b = ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c.Character
+return b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b ~= nil and a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022:IsDescendantOf(b88f3ff8e4d1e3c7154d289e19182d587a09afb3d2fecbc196e35b88793f977b) and e4799e5a563f4db4dc0d0687ac589c12a9f5c80d6278b0d82862cc3a18c835df(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c) and c25cc7696866c1db17666c223f4df731245ca5ff80d9b94ce7e7f18626701d18(ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c)
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.b772434ec0f06b01fbe5abdda08c037c54770465fb5e1d2aa4b114b52cb490a2()
+local f4e820dfbfef735f8780a9f8f40175a35cce8a20d494f611822653682aea6bb5 = math.clamp(tonumber(b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.badf1d93e1f23add692e2ecdc97f3485294723a85966d9e9e0986bb977ff6778) or 100, 0, 100)
+if f4e820dfbfef735f8780a9f8f40175a35cce8a20d494f611822653682aea6bb5 >= 100 then
+return true
+end
+if f4e820dfbfef735f8780a9f8f40175a35cce8a20d494f611822653682aea6bb5 <= 0 then
+return false
+end
+return (math.random() * 100) <= f4e820dfbfef735f8780a9f8f40175a35cce8a20d494f611822653682aea6bb5
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:bfdcccb2374fac06e29adeda24137894b2d84ea0f9f4fac79917b9357994ddc8()
+return d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.b772434ec0f06b01fbe5abdda08c037c54770465fb5e1d2aa4b114b52cb490a2()
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:fbc1d75c66e1a5d1f514340819e34d3ce5caaed618fdfb2f7478215e883a4a21()
+self.e8b8063d89dc43da0a023539540007a6a6b1e23d5693f4de124ead8e12a5806c = true
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:ca698b919a4fb47539f4ceee18304b29b62c971dfe29d93d3c4b1e6f6720babf()
+local b26e6e1d2a14c2d427a1b3e2d6cd0269b92902c393f993e893bd790c6ad14896 = os.clock()
+if (b26e6e1d2a14c2d427a1b3e2d6cd0269b92902c393f993e893bd790c6ad14896 - (self.b447270be3fbcd18e3c324f49765b126b546130198b800f9b3b2425c21c74b1b or 0)) < d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.f01bc6496d96ec6060a2e700622e2b0174470459bd33653b9f90dd46f9eee91b then
+if self.e28989d923e2b40ebe902ffb507d21c3e595c6763d22dc8e348ccbdd4b6dbbe3 and self:cb2d553fc5e179036836c7feea496b345531fbf81f11dfab40db862466c6322e() then
+return self.d55cc7ce5e51fa06e8ae65101d804166be9a6ce3fb387cdd835156415aecf96c
+end
+return nil
+end
+self.b447270be3fbcd18e3c324f49765b126b546130198b800f9b3b2425c21c74b1b = b26e6e1d2a14c2d427a1b3e2d6cd0269b92902c393f993e893bd790c6ad14896
+local d56fdb81e8fba561f301058d2e45d0c44f5169f77f91c27f63f492090ebaa4a5 = not self.e8b8063d89dc43da0a023539540007a6a6b1e23d5693f4de124ead8e12a5806c and b26e6e1d2a14c2d427a1b3e2d6cd0269b92902c393f993e893bd790c6ad14896 < (self.e54cd7acb0d4672095d024d09d19741e3970fbb19e39a497bdb00b38592415da or 0) and self:cb2d553fc5e179036836c7feea496b345531fbf81f11dfab40db862466c6322e()
+if d56fdb81e8fba561f301058d2e45d0c44f5169f77f91c27f63f492090ebaa4a5 then
+return self.e28989d923e2b40ebe902ffb507d21c3e595c6763d22dc8e348ccbdd4b6dbbe3 and self.d55cc7ce5e51fa06e8ae65101d804166be9a6ce3fb387cdd835156415aecf96c or nil
+end
+self.e8b8063d89dc43da0a023539540007a6a6b1e23d5693f4de124ead8e12a5806c = false
+self.e54cd7acb0d4672095d024d09d19741e3970fbb19e39a497bdb00b38592415da = b26e6e1d2a14c2d427a1b3e2d6cd0269b92902c393f993e893bd790c6ad14896 + d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.c6baefdf839466dd972780e5766470ac0d072d47127704448eb2e23931a22383
+local a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022, ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c = self:bc30fd30d51128f03ac8ec4f2c384a58a1b690164cfd856ba9e262467f0157fc()
+self.d55cc7ce5e51fa06e8ae65101d804166be9a6ce3fb387cdd835156415aecf96c, self.c01066ff808af3e020da2645256e8bde0e80142e21f9d68ef80c0c4d6bfa0251 = a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022, ce7ea76bb21d315051595157f3613151bc2311b09dace6665b82cd82830c440c
+self.e28989d923e2b40ebe902ffb507d21c3e595c6763d22dc8e348ccbdd4b6dbbe3 = (a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 ~= nil) and self:bfdcccb2374fac06e29adeda24137894b2d84ea0f9f4fac79917b9357994ddc8()
+return self.e28989d923e2b40ebe902ffb507d21c3e595c6763d22dc8e348ccbdd4b6dbbe3 and a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 or nil
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:fab5c876685155671bf1757186d4ddbc68aab5b88b2d72d7461ff16ea4b8dc4a()
+if self.c7ae9af31f78145f2b356ef238704a2e7ecfb583e24535c80f244e10aa00bd93 then
+return true
+end
+if type(getrawmetatable) ~= "function" or type(setreadonly) ~= "function" then
+return false
+end
+local c46e8c1373e69f2441d4219842d1ebdb565666e6ab50a130d9791c74fe1f4998 = self
+local c9b1efd12e58ef904a6374a1aab06765933c65c8cc868f696734d797acf0c3c7 = (type(newcclosure) == "function") and newcclosure or function(d109a5dbd1ebb2dff7b19b02f9b1ee6b2a77bf9bab6665ebca80fb3c6d110138)
+return d109a5dbd1ebb2dff7b19b02f9b1ee6b2a77bf9bab6665ebca80fb3c6d110138
+end
+local d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166 = pcall(function()
+local fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c = getrawmetatable(game)
+local ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479 = fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c.__index
+local e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271 = c9b1efd12e58ef904a6374a1aab06765933c65c8cc868f696734d797acf0c3c7(function(f0b2c7a64fc9350e37fd44fbc7b12344b7dad771c8c8fd56276e96b5fafcbddf, f9ee85850af38caff67bd657e96b695597356aaf04e4f54e5fa4889ec11f54a4)
+if c46e8c1373e69f2441d4219842d1ebdb565666e6ab50a130d9791c74fe1f4998.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 and a19b1705586911761e466d7a3e57eac90ac2fd06511433660c742c804f9e5115() and (f9ee85850af38caff67bd657e96b695597356aaf04e4f54e5fa4889ec11f54a4 == "Hit" or f9ee85850af38caff67bd657e96b695597356aaf04e4f54e5fa4889ec11f54a4 == "Target") and f0b2c7a64fc9350e37fd44fbc7b12344b7dad771c8c8fd56276e96b5fafcbddf == c46e8c1373e69f2441d4219842d1ebdb565666e6ab50a130d9791c74fe1f4998:d07517ac340b1caf80e4598c5e502955324d0106dd3d95d550d3613131a79589() then
+local a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 = c46e8c1373e69f2441d4219842d1ebdb565666e6ab50a130d9791c74fe1f4998:ca698b919a4fb47539f4ceee18304b29b62c971dfe29d93d3c4b1e6f6720babf()
+if a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022 then
+return (f9ee85850af38caff67bd657e96b695597356aaf04e4f54e5fa4889ec11f54a4 == "Hit") and a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022.CFrame or a8e2da00c3bbf06ae7223770446f439f539ba1422970f459e61492ff36d97022
+end
+end
+return ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479(f0b2c7a64fc9350e37fd44fbc7b12344b7dad771c8c8fd56276e96b5fafcbddf, f9ee85850af38caff67bd657e96b695597356aaf04e4f54e5fa4889ec11f54a4)
+end)
+setreadonly(fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c, false)
+fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c.__index = e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271
+setreadonly(fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c, true)
+c46e8c1373e69f2441d4219842d1ebdb565666e6ab50a130d9791c74fe1f4998.ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479 = ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479
+c46e8c1373e69f2441d4219842d1ebdb565666e6ab50a130d9791c74fe1f4998.e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271 = e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271
+end)
+if d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166 then
+self.c7ae9af31f78145f2b356ef238704a2e7ecfb583e24535c80f244e10aa00bd93 = true
+end
+return self.c7ae9af31f78145f2b356ef238704a2e7ecfb583e24535c80f244e10aa00bd93
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:aacce62957fa9d690a3a3450c66dfb05893d518f2ea34b3975628738db84504b()
+if not self:fab5c876685155671bf1757186d4ddbc68aab5b88b2d72d7461ff16ea4b8dc4a() then
+return
+end
+if self.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 then
+return
+end
+self.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 = true
+self.b447270be3fbcd18e3c324f49765b126b546130198b800f9b3b2425c21c74b1b = 0
+self.e54cd7acb0d4672095d024d09d19741e3970fbb19e39a497bdb00b38592415da = 0
+self.e8b8063d89dc43da0a023539540007a6a6b1e23d5693f4de124ead8e12a5806c = true
+self.e28989d923e2b40ebe902ffb507d21c3e595c6763d22dc8e348ccbdd4b6dbbe3 = true
+self.d55cc7ce5e51fa06e8ae65101d804166be9a6ce3fb387cdd835156415aecf96c = nil
+self.c01066ff808af3e020da2645256e8bde0e80142e21f9d68ef80c0c4d6bfa0251 = nil
+self.a1c69be617454a0ae07920d2112104816d6d18dae6198ecc5c101c9dc7d216a1:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(ee72b1fe9fc60e0808ce8ef5ffca02d2197da178377a629aababde2b1d451631.InputBegan:Connect(function(df7fbe41500170c112a689b15af174cfe685fd2d33c3e55c1e1ddd03e73930ad)
+if df7fbe41500170c112a689b15af174cfe685fd2d33c3e55c1e1ddd03e73930ad.UserInputType == Enum.UserInputType.MouseButton1 or df7fbe41500170c112a689b15af174cfe685fd2d33c3e55c1e1ddd03e73930ad.UserInputType == Enum.UserInputType.Touch then
+self:fbc1d75c66e1a5d1f514340819e34d3ce5caaed618fdfb2f7478215e883a4a21()
+end
+end))
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:c0b2be3de42a99fedcd4f438d06719a8af523b0d46e50e50d4761015af9629e5()
+if not self.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 then
+return
+end
+self.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 = false
+self.d55cc7ce5e51fa06e8ae65101d804166be9a6ce3fb387cdd835156415aecf96c = nil
+self.c01066ff808af3e020da2645256e8bde0e80142e21f9d68ef80c0c4d6bfa0251 = nil
+self.b447270be3fbcd18e3c324f49765b126b546130198b800f9b3b2425c21c74b1b = 0
+self.e54cd7acb0d4672095d024d09d19741e3970fbb19e39a497bdb00b38592415da = 0
+self.e8b8063d89dc43da0a023539540007a6a6b1e23d5693f4de124ead8e12a5806c = true
+self.e28989d923e2b40ebe902ffb507d21c3e595c6763d22dc8e348ccbdd4b6dbbe3 = true
+self.a1c69be617454a0ae07920d2112104816d6d18dae6198ecc5c101c9dc7d216a1:d91686cab03e34c63e0a35ca3b16391fd0a00a622dc8db7085b64faf82174b43()
+end
+function d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63:aa5a8517498d0f2f846daf21458c3456769893e1cc8d16230f7111b62c77e48a()
+if not self.c7ae9af31f78145f2b356ef238704a2e7ecfb583e24535c80f244e10aa00bd93 then
+return
+end
+pcall(function()
+local fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c = getrawmetatable(game)
+if self.e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271 and self.ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479 and rawequal(fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c.__index, self.e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271) then
+setreadonly(fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c, false)
+fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c.__index = self.ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479
+setreadonly(fffa812a95f2067c566f72f6cf1f1edbacd85acd8f83a646930bbd836c89ac8c, true)
+end
+end)
+self.c7ae9af31f78145f2b356ef238704a2e7ecfb583e24535c80f244e10aa00bd93 = false
+self.ab5eb02a46f6d2b8d4eba5ad313cda3f5e2c73587054c473df9c3ce109f35479 = nil
+self.e32d08087c5954afab3482ec1411321d118e4e009fa281dfa5fff376897af271 = nil
+end
+local ed36dd50fc7ba8e37df88f85943a45b597d879083f91e0a23626dc8bf9a3aeb6 = d77a9cdffeacfd21bbb885d1a261048a55f65f37c30ebf8c6f787bff6ac70b63.bf895c602340134494869e53aa321c0d4eb94a7a2fdd82b79368b8f19a325e30()
+local fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69 = {}
+fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69.__index = fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69
+function fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69.bf895c602340134494869e53aa321c0d4eb94a7a2fdd82b79368b8f19a325e30()
+return setmetatable({
+a1c69be617454a0ae07920d2112104816d6d18dae6198ecc5c101c9dc7d216a1 = d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f.bf895c602340134494869e53aa321c0d4eb94a7a2fdd82b79368b8f19a325e30(),
+d11cd2277cc5ebdfc216939ce9730bf688321f34ae5c70dd54b09e26a4a4f978 = nil,
+a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5 = nil,
+ee1d0ef17a6326aa912029959d3fcc3bac10c6db0024984e6ccfe93eb2abd05d = false,
+}, fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69)
+end
+function fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69:f264681e9c08666a041aac827c1c2b757c1e84c1484ae92e18cf5ac1c5d10b17()
+if type(gethui) == "function" then
+local d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166, e2265e46b205612ccd32a5b4adfd87d8ae498a2c24f57e463a3bb1923cec1aaf = pcall(gethui)
+if d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166 and e2265e46b205612ccd32a5b4adfd87d8ae498a2c24f57e463a3bb1923cec1aaf then
+return e2265e46b205612ccd32a5b4adfd87d8ae498a2c24f57e463a3bb1923cec1aaf
+end
+end
+local d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166, b1f3fa55ddc154c3d4a61f5b9feccc0a1822e45805b2bcc190f3706369b2ee20 = pcall(function()
+return game:GetService("CoreGui")
+end)
+if d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166 and b1f3fa55ddc154c3d4a61f5b9feccc0a1822e45805b2bcc190f3706369b2ee20 then
+return b1f3fa55ddc154c3d4a61f5b9feccc0a1822e45805b2bcc190f3706369b2ee20
+end
+return b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f:FindFirstChild("PlayerGui")
+end
+function fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69:c3e77d5c243debfd8bafb8f27d75ec5609d9bfb6bbc2c4014214be4c1e6c06e1()
+if self.a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5 and self.a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5.Parent then
+return self.a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5
+end
+local d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166, a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5 = pcall(function()
+local ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05 = Instance.new("ScreenGui")
+ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05.Name = "vqm"
+ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05.ResetOnSpawn = false
+ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05.IgnoreGuiInset = true
+ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05.DisplayOrder = 999999
+ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05.Enabled = false
+ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05.Parent = self:f264681e9c08666a041aac827c1c2b757c1e84c1484ae92e18cf5ac1c5d10b17()
+local a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0 = Instance.new("Frame")
+a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0.Name = "a"
+a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0.AnchorPoint = Vector2.new(0.5, 0.5)
+a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0.BackgroundTransparency = 1
+a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0.BorderSizePixel = 0
+a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0.Size = UDim2.fromOffset(400, 400)
+a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0.Parent = ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05
+local a98a22f495013695cbe11224cb965c42d21213662d645e847c4e10c704694982 = Instance.new("UICorner")
+a98a22f495013695cbe11224cb965c42d21213662d645e847c4e10c704694982.CornerRadius = UDim.new(1, 0)
+a98a22f495013695cbe11224cb965c42d21213662d645e847c4e10c704694982.Parent = a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0
+local fa2650773d1bbb40cac594922dcb551a65d38eee208cccd3de52bd8236ff03a8 = Instance.new("UIStroke")
+fa2650773d1bbb40cac594922dcb551a65d38eee208cccd3de52bd8236ff03a8.Thickness = 1.5
+fa2650773d1bbb40cac594922dcb551a65d38eee208cccd3de52bd8236ff03a8.Color = Color3.fromRGB(255, 255, 255)
+fa2650773d1bbb40cac594922dcb551a65d38eee208cccd3de52bd8236ff03a8.Transparency = 0
+fa2650773d1bbb40cac594922dcb551a65d38eee208cccd3de52bd8236ff03a8.Parent = a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0
+self.d11cd2277cc5ebdfc216939ce9730bf688321f34ae5c70dd54b09e26a4a4f978 = ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05
+return a066b264b6f9cd3303de2416de9a144e36352af21c79484c84e9cb07d13f4de0
+end)
+if d52e757196084a2d4e6a02a84d5ba8a4e3a367a5f4fc40b86b4398bedc553166 and a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5 then
+self.a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5 = a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5
+self.a1c69be617454a0ae07920d2112104816d6d18dae6198ecc5c101c9dc7d216a1:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(self.d11cd2277cc5ebdfc216939ce9730bf688321f34ae5c70dd54b09e26a4a4f978)
+return a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5
+end
+return nil
+end
+function fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69:e91ec709a153fb8a4937675c3231d1699dc8d4038c5668124a6040b8e6ddd442()
+self.a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5 = nil
+local ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05 = self.d11cd2277cc5ebdfc216939ce9730bf688321f34ae5c70dd54b09e26a4a4f978
+self.d11cd2277cc5ebdfc216939ce9730bf688321f34ae5c70dd54b09e26a4a4f978 = nil
+if ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05 then
+pcall(function()
+ac82cd5b3b1e7248699bd8902e85d0777f0522d60e2c094d4eca481dc677db05:Destroy()
+end)
+end
+end
+function fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69:e0cc98cb7f9c326ce7e877f63007d91a4f1ec22e80bff9e3b48ddbfba81df448()
+return b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.b82d18d4b9c8992f6208b8fd8d463da9ff9f653f3ee294bf85532e78ff0865d0 == true and b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.bd1b3a2c6d1dfa95ed0d3c9afea379adf7b44a278fd81869f2ef2544ab1d54b0 == true and ed36dd50fc7ba8e37df88f85943a45b597d879083f91e0a23626dc8bf9a3aeb6.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392 == true
+end
+function fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69:c72d36668ea06e3e16fcfb99151e10941289f005132b63e949d6872b1d326bd4()
+if not self:e0cc98cb7f9c326ce7e877f63007d91a4f1ec22e80bff9e3b48ddbfba81df448() then
+if self.d11cd2277cc5ebdfc216939ce9730bf688321f34ae5c70dd54b09e26a4a4f978 then
+self.d11cd2277cc5ebdfc216939ce9730bf688321f34ae5c70dd54b09e26a4a4f978.Enabled = false
+end
+return
+end
+local a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5 = self:c3e77d5c243debfd8bafb8f27d75ec5609d9bfb6bbc2c4014214be4c1e6c06e1()
+if not a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5 then
+return
+end
+local b4273e4987d64583880c74b878331b66c3464bcbec06d1244ab7d5a42c6a86a0 = fcdaf944c05116367b76a325835ae77d58d4734dcc1e8cdd0909c704cdc168e2()
+local ced1b133a8a92752725e3a8ea9ea5a3861f5412f851067cb3fb2cf3c8db07a79 = math.max(1, tonumber(b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.aa040c1e543679fe1147d4038153c95430de0aedc3cc1ae12edf345e5ed9c4bd) or 200)
+a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5.Size = UDim2.fromOffset(ced1b133a8a92752725e3a8ea9ea5a3861f5412f851067cb3fb2cf3c8db07a79 * 2, ced1b133a8a92752725e3a8ea9ea5a3861f5412f851067cb3fb2cf3c8db07a79 * 2)
+a80d4a299f2ac82b3c211f433440ecf31dcba0caec0dd77d358dda40475fe2f5.Position = UDim2.fromOffset(b4273e4987d64583880c74b878331b66c3464bcbec06d1244ab7d5a42c6a86a0.X, b4273e4987d64583880c74b878331b66c3464bcbec06d1244ab7d5a42c6a86a0.Y)
+self.d11cd2277cc5ebdfc216939ce9730bf688321f34ae5c70dd54b09e26a4a4f978.Enabled = true
+end
+function fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69:b054c294d0cad1e97614a43457a4d050ba5b80d6061db2e4e1ccb3374cc9b23b()
+if self.ee1d0ef17a6326aa912029959d3fcc3bac10c6db0024984e6ccfe93eb2abd05d then
+return
+end
+self.ee1d0ef17a6326aa912029959d3fcc3bac10c6db0024984e6ccfe93eb2abd05d = true
+self.a1c69be617454a0ae07920d2112104816d6d18dae6198ecc5c101c9dc7d216a1:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(b487821c99e30b3b96d7039ec665df8aa5d3f8ff2c49edfc9c72b2cca6bc4581.RenderStepped:Connect(function()
+self:c72d36668ea06e3e16fcfb99151e10941289f005132b63e949d6872b1d326bd4()
+end))
+end
+function fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69:da9cfb103e858b65d36dc131d32ca35c025092db270644ceece94cb548f10d26()
+self.ee1d0ef17a6326aa912029959d3fcc3bac10c6db0024984e6ccfe93eb2abd05d = false
+self.a1c69be617454a0ae07920d2112104816d6d18dae6198ecc5c101c9dc7d216a1:d91686cab03e34c63e0a35ca3b16391fd0a00a622dc8db7085b64faf82174b43()
+self:e91ec709a153fb8a4937675c3231d1699dc8d4038c5668124a6040b8e6ddd442()
+end
+local efddb8f9a6b843ca584a761af3cca9e53c2390eff280ca78dd4d94ee3c7c088b = fdd2bcae036641a492d26840b3db095595eb410d0c6eda620857845321c3dd69.bf895c602340134494869e53aa321c0d4eb94a7a2fdd82b79368b8f19a325e30()
+efddb8f9a6b843ca584a761af3cca9e53c2390eff280ca78dd4d94ee3c7c088b:b054c294d0cad1e97614a43457a4d050ba5b80d6061db2e4e1ccb3374cc9b23b()
+local db6b9c8e72032df72b976e0aa7f9cba0636d194660559e45701d8d1d082497d1 = d6a3fa1f5c9ceb5a48aef9fd47e8acd96f8ec8ba6a72a713c3b1e07a057c825f.bf895c602340134494869e53aa321c0d4eb94a7a2fdd82b79368b8f19a325e30()
+local f7c8cccc84540a6a94e72286e089f15b4a2f1e955c23ca65327f28a6439f85d8 = false
+local function e801946f07b4fcc415617ea99b648a468ad514bb510c5772e0527dce874914f1()
+if f7c8cccc84540a6a94e72286e089f15b4a2f1e955c23ca65327f28a6439f85d8 then
+return
+end
+f7c8cccc84540a6a94e72286e089f15b4a2f1e955c23ca65327f28a6439f85d8 = true
+b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577 = false
+db6b9c8e72032df72b976e0aa7f9cba0636d194660559e45701d8d1d082497d1:d91686cab03e34c63e0a35ca3b16391fd0a00a622dc8db7085b64faf82174b43()
+ed36dd50fc7ba8e37df88f85943a45b597d879083f91e0a23626dc8bf9a3aeb6:c0b2be3de42a99fedcd4f438d06719a8af523b0d46e50e50d4761015af9629e5()
+ed36dd50fc7ba8e37df88f85943a45b597d879083f91e0a23626dc8bf9a3aeb6:aa5a8517498d0f2f846daf21458c3456769893e1cc8d16230f7111b62c77e48a()
+efddb8f9a6b843ca584a761af3cca9e53c2390eff280ca78dd4d94ee3c7c088b:da9cfb103e858b65d36dc131d32ca35c025092db270644ceece94cb548f10d26()
+end
+local function c00585c2d70b46a49b4eea7422bde73e6479df73dc9f75b90c82359f85849d29(f3a2df317169d0e37f609e9abc689eaeae90cb258e71f1761c9e1b80a41de5b6)
+if not a19b1705586911761e466d7a3e57eac90ac2fd06511433660c742c804f9e5115() then
+e801946f07b4fcc415617ea99b648a468ad514bb510c5772e0527dce874914f1()
+return
+end
+b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577 = f3a2df317169d0e37f609e9abc689eaeae90cb258e71f1761c9e1b80a41de5b6 == true
+if b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577 then
+ed36dd50fc7ba8e37df88f85943a45b597d879083f91e0a23626dc8bf9a3aeb6:aacce62957fa9d690a3a3450c66dfb05893d518f2ea34b3975628738db84504b()
+else
+ed36dd50fc7ba8e37df88f85943a45b597d879083f91e0a23626dc8bf9a3aeb6:c0b2be3de42a99fedcd4f438d06719a8af523b0d46e50e50d4761015af9629e5()
+end
+end
+local c23ae5f216aa47e8dadd9e3d4d6bec9eb3bb9ed6fc144e2f05300ce16a6a4867 = Enum.KeyCode[b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.c9611f4b11d6e23ef3b88fe758ea2e18c8e912deeb0a43edce7f096046f836ea] or Enum.KeyCode.Q
+local eb353fc1c41966376484d5ce83cc05c438b372e0e474158d216e609dfb56b27d = Enum.KeyCode[b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.fddeceddd8ea62f7a22e11432ed6889335c37de6823c92fab0242887c7ae9b5f] or Enum.KeyCode.Zero
+local e80e8f2face6b8048fea3405b899f557bbc26dbc04b5bcb4174a507498aa01e8 = false
+db6b9c8e72032df72b976e0aa7f9cba0636d194660559e45701d8d1d082497d1:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(ee72b1fe9fc60e0808ce8ef5ffca02d2197da178377a629aababde2b1d451631.InputBegan:Connect(function(df7fbe41500170c112a689b15af174cfe685fd2d33c3e55c1e1ddd03e73930ad, db55f4d4d37a3b12dda78f974f931ec833a7b8423c876dd6a394b77f258c63d6)
+if db55f4d4d37a3b12dda78f974f931ec833a7b8423c876dd6a394b77f258c63d6 then
+return
+end
+local cd39a835b2b0a643db4f792df7c44fc3492d77221aef95db2de9363355021fe1 = df7fbe41500170c112a689b15af174cfe685fd2d33c3e55c1e1ddd03e73930ad.KeyCode
+if cd39a835b2b0a643db4f792df7c44fc3492d77221aef95db2de9363355021fe1 == Enum.KeyCode.Unknown then
+return
+end
+if e80e8f2face6b8048fea3405b899f557bbc26dbc04b5bcb4174a507498aa01e8 then
+e80e8f2face6b8048fea3405b899f557bbc26dbc04b5bcb4174a507498aa01e8 = false
+if
+cd39a835b2b0a643db4f792df7c44fc3492d77221aef95db2de9363355021fe1 ~= eb353fc1c41966376484d5ce83cc05c438b372e0e474158d216e609dfb56b27d
+and cd39a835b2b0a643db4f792df7c44fc3492d77221aef95db2de9363355021fe1 ~= Enum.KeyCode.KeypadZero
+then
+c23ae5f216aa47e8dadd9e3d4d6bec9eb3bb9ed6fc144e2f05300ce16a6a4867 = cd39a835b2b0a643db4f792df7c44fc3492d77221aef95db2de9363355021fe1
+end
+return
+end
+if
+cd39a835b2b0a643db4f792df7c44fc3492d77221aef95db2de9363355021fe1 == eb353fc1c41966376484d5ce83cc05c438b372e0e474158d216e609dfb56b27d
+or cd39a835b2b0a643db4f792df7c44fc3492d77221aef95db2de9363355021fe1 == Enum.KeyCode.KeypadZero
+then
+e80e8f2face6b8048fea3405b899f557bbc26dbc04b5bcb4174a507498aa01e8 = true
+return
+end
+if cd39a835b2b0a643db4f792df7c44fc3492d77221aef95db2de9363355021fe1 == c23ae5f216aa47e8dadd9e3d4d6bec9eb3bb9ed6fc144e2f05300ce16a6a4867 then
+c00585c2d70b46a49b4eea7422bde73e6479df73dc9f75b90c82359f85849d29(not ed36dd50fc7ba8e37df88f85943a45b597d879083f91e0a23626dc8bf9a3aeb6.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392)
+end
+end))
+local c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c = nil
+local c6dda81b0289ee96e4e1227a9f32b92a87e9a2fcaae16ee47fec1b14bc32bee0 = nil
+local a8b0d952793a236efa1335b6ef1db0342676cf364e5adc9c07f944f45d3f21d8 = nil
+local function f3fb6979a1dac986549fc998f2178abdc56001d40715e85774259421faad0601()
+if a8b0d952793a236efa1335b6ef1db0342676cf364e5adc9c07f944f45d3f21d8 and a8b0d952793a236efa1335b6ef1db0342676cf364e5adc9c07f944f45d3f21d8.Parent then
+return a8b0d952793a236efa1335b6ef1db0342676cf364e5adc9c07f944f45d3f21d8
+end
+local cd5f3939d82f8200b1eb78b3c34189130976ac372921d6cf98916997db7770e4 = b74fb6af4291c25a27540c49d07eaec014dcc0ce1f4552a534ec1ce2f316090f:FindFirstChild("PlayerGui")
+local a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4 = cd5f3939d82f8200b1eb78b3c34189130976ac372921d6cf98916997db7770e4
+and cd5f3939d82f8200b1eb78b3c34189130976ac372921d6cf98916997db7770e4:FindFirstChild("TopbarStandard")
+a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4 = a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4
+and a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4:FindFirstChild("Holders")
+a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4 = a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4
+and a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4:FindFirstChild("Right")
+a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4 = a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4
+and a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4:FindFirstChild("Widget")
+a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4 = a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4
+and a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4:FindFirstChild("IconButton")
+a8b0d952793a236efa1335b6ef1db0342676cf364e5adc9c07f944f45d3f21d8 = a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4
+return a879a51e150e22a7489dcb1e504cdc31bbd5ff00790dccc13be5666a8385e7c4
+end
+local function c29ab554434f190b528bab9571e5e053b4aec4771220002139c897aa836ed0a2()
+if not a19b1705586911761e466d7a3e57eac90ac2fd06511433660c742c804f9e5115() then
+e801946f07b4fcc415617ea99b648a468ad514bb510c5772e0527dce874914f1()
+return
+end
+if not (c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c and c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c.Parent) then
+return
+end
+if not (c6dda81b0289ee96e4e1227a9f32b92a87e9a2fcaae16ee47fec1b14bc32bee0 and c6dda81b0289ee96e4e1227a9f32b92a87e9a2fcaae16ee47fec1b14bc32bee0.Parent) then
+return
+end
+local ee7d2cad700c004c2839f276483c6dd1261f096d41b2c313e6fae9c1cc8c5277 = nil
+pcall(function()
+ee7d2cad700c004c2839f276483c6dd1261f096d41b2c313e6fae9c1cc8c5277 = f3fb6979a1dac986549fc998f2178abdc56001d40715e85774259421faad0601()
+end)
+if ee7d2cad700c004c2839f276483c6dd1261f096d41b2c313e6fae9c1cc8c5277 and ee7d2cad700c004c2839f276483c6dd1261f096d41b2c313e6fae9c1cc8c5277.AbsoluteSize.X > 0 then
+local b84cc0d9b8408fef7b0f5915f4c895bf8a8a4f6c8b13f20effc49b8cd9e401e5 = c6dda81b0289ee96e4e1227a9f32b92a87e9a2fcaae16ee47fec1b14bc32bee0.AbsolutePosition
+local a377aa28b98ea971e24e6f59e5b577b22304751a20223aa956e44b0f9a55cbe8 = ee7d2cad700c004c2839f276483c6dd1261f096d41b2c313e6fae9c1cc8c5277.AbsolutePosition
+local d319b9ca04a9047c32147a1d409a3352fc2b0387b66864d791c3c89ee8e01259 = ee7d2cad700c004c2839f276483c6dd1261f096d41b2c313e6fae9c1cc8c5277.AbsoluteSize
+c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c.AnchorPoint = Vector2.new(0.5, 0)
+c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c.Size = UDim2.fromOffset(
+math.max(28, d319b9ca04a9047c32147a1d409a3352fc2b0387b66864d791c3c89ee8e01259.X),
+math.max(28, d319b9ca04a9047c32147a1d409a3352fc2b0387b66864d791c3c89ee8e01259.Y)
+)
+c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c.Position = UDim2.fromOffset(
+a377aa28b98ea971e24e6f59e5b577b22304751a20223aa956e44b0f9a55cbe8.X - b84cc0d9b8408fef7b0f5915f4c895bf8a8a4f6c8b13f20effc49b8cd9e401e5.X + (d319b9ca04a9047c32147a1d409a3352fc2b0387b66864d791c3c89ee8e01259.X / 2),
+a377aa28b98ea971e24e6f59e5b577b22304751a20223aa956e44b0f9a55cbe8.Y - b84cc0d9b8408fef7b0f5915f4c895bf8a8a4f6c8b13f20effc49b8cd9e401e5.Y + d319b9ca04a9047c32147a1d409a3352fc2b0387b66864d791c3c89ee8e01259.Y + 6
+)
+else
+c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c.AnchorPoint = Vector2.new(1, 0)
+c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c.Size = UDim2.fromOffset(40, 40)
+c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c.Position = UDim2.new(1, -14, 0, 50)
+end
+end
+pcall(function()
+local fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf = Instance.new("ScreenGui")
+fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf.Name = "kzt"
+fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf.ResetOnSpawn = false
+fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf.IgnoreGuiInset = true
+fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf.DisplayOrder = 999999
+fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf.Parent = efddb8f9a6b843ca584a761af3cca9e53c2390eff280ca78dd4d94ee3c7c088b:f264681e9c08666a041aac827c1c2b757c1e84c1484ae92e18cf5ac1c5d10b17()
+local d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904 = Instance.new("Frame")
+d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904.Name = "c"
+d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904.Active = false
+d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904.BackgroundTransparency = 1
+d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904.BorderSizePixel = 0
+d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904.Position = UDim2.fromOffset(0, 0)
+d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904.Size = UDim2.fromScale(1, 1)
+d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904.Parent = fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf
+local c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3 = Instance.new("TextButton")
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.Name = "b"
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.AnchorPoint = Vector2.new(1, 0)
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.Position = UDim2.new(1, -14, 0, 50)
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.Size = UDim2.fromOffset(40, 40)
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.BackgroundTransparency = 1
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.BorderSizePixel = 0
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.AutoButtonColor = false
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.Text = ""
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.Parent = d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904
+c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3.Activated:Connect(function()
+c00585c2d70b46a49b4eea7422bde73e6479df73dc9f75b90c82359f85849d29(not ed36dd50fc7ba8e37df88f85943a45b597d879083f91e0a23626dc8bf9a3aeb6.e15f4b90f7b95467574a521729652784522898a97d3f2eff57036b33a27a5392)
+end)
+c7592ee8b4da7af08f53cf021620ec4754672a2fa3c7ecbe165057d82135f29c = c7d3aa9c472719df8131df41dba3bf91498c5c46c626c2956d615dcc001af5f3
+c6dda81b0289ee96e4e1227a9f32b92a87e9a2fcaae16ee47fec1b14bc32bee0 = d61a5dab4802e7ec9a462ec543053fcba4aa621253c082556fb123f3de57d904
+db6b9c8e72032df72b976e0aa7f9cba0636d194660559e45701d8d1d082497d1:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(fc2f5cb05f8e44ae7492a1e101f0fa63bdfb4c19b3607dc7915ef6be71ea33bf)
+end)
+c29ab554434f190b528bab9571e5e053b4aec4771220002139c897aa836ed0a2()
+db6b9c8e72032df72b976e0aa7f9cba0636d194660559e45701d8d1d082497d1:eeb5fdf6627ee384bf09c862e09f349206727a8f3ebe2a31ecdfe0bd6c785cea(b487821c99e30b3b96d7039ec665df8aa5d3f8ff2c49edfc9c72b2cca6bc4581.RenderStepped:Connect(c29ab554434f190b528bab9571e5e053b4aec4771220002139c897aa836ed0a2))
+pcall(function()
+a42b523f7c8cc079c63d5b137575905ad18c192721dd52f6d47e96f109f9660f()[b0f63f19c3d68ad030fea9fec8066704d28f571208befb738edafd971b821187] = e801946f07b4fcc415617ea99b648a468ad514bb510c5772e0527dce874914f1
+end)
+a42b523f7c8cc079c63d5b137575905ad18c192721dd52f6d47e96f109f9660f().d7597a86d428d1664c919f7038ad3791d3312b85b1d12726b031540eb393d9d3 = function()
+local a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000 = a42b523f7c8cc079c63d5b137575905ad18c192721dd52f6d47e96f109f9660f()
+if type(a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000[b0f63f19c3d68ad030fea9fec8066704d28f571208befb738edafd971b821187]) == "function" then
+a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000[b0f63f19c3d68ad030fea9fec8066704d28f571208befb738edafd971b821187]()
+a31e4f8f3801cd71d10c9790171d3d59f08e155b3e3156d47c9d8d120db7d000[b0f63f19c3d68ad030fea9fec8066704d28f571208befb738edafd971b821187] = nil
+end
+end
+c00585c2d70b46a49b4eea7422bde73e6479df73dc9f75b90c82359f85849d29(b3378c916eb7ed102596d10d3f5db86c76c10301f54154a627996d17894acb9d.f85f6b355a0b8aca3be512b3a23d8f0cd98c99cab5ec9498515d04a95ef5e577)
