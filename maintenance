@@ -1,0 +1,605 @@
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local SoundService = game:GetService("SoundService")
+local Lighting = game:GetService("Lighting")
+local IMAGE_ASSET_ID = 91410385897460
+local TEXT_ASSET_ID = 111432187627210
+local WINDOW_TITLE = "RysHub"
+local SOUND_ASSET_ID = 118638380617180
+local SOUND_VOLUME = 0.5
+local TEXT_ASPECT = 1024 / 576
+local BASE_SIZE = 440
+local camera = workspace.CurrentCamera
+local function fitScale()
+	local viewport = camera.ViewportSize
+	return math.clamp(math.min(viewport.X * 0.92, viewport.Y * 0.86) / BASE_SIZE, 0.5, 1.18)
+end
+local CORNER_RADIUS = UDim.new(0, 22)
+local HOT_PINK = Color3.fromRGB(255, 45, 111)
+local LIGHT_PINK = Color3.fromRGB(255, 140, 195)
+local DEEP_PLUM = Color3.fromRGB(28, 8, 20)
+local PETAL_COLORS = {
+	Color3.fromRGB(255, 196, 222),
+	Color3.fromRGB(255, 168, 206),
+	Color3.fromRGB(255, 220, 236),
+	Color3.fromRGB(252, 146, 192),
+}
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local previousGui = playerGui:FindFirstChild("MaintenanceUI")
+if previousGui then
+	previousGui:Destroy()
+end
+local previousBlur = Lighting:FindFirstChild("MaintenanceBlur")
+if previousBlur then
+	previousBlur:Destroy()
+end
+local previousSound = SoundService:FindFirstChild("MaintenanceSound")
+if previousSound then
+	previousSound:Destroy()
+end
+local function assetUrl(id)
+	return id > 0 and ("rbxassetid://" .. id) or ""
+end
+local rng = Random.new()
+local gui = Instance.new("ScreenGui")
+gui.Name = "MaintenanceUI"
+gui.IgnoreGuiInset = true
+gui.ResetOnSpawn = false
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+gui.DisplayOrder = 2147483647
+gui.Parent = playerGui
+local blur = Instance.new("BlurEffect")
+blur.Name = "MaintenanceBlur"
+blur.Size = 0
+blur.Parent = Lighting
+local sound
+if SOUND_ASSET_ID > 0 then
+	sound = Instance.new("Sound")
+	sound.Name = "MaintenanceSound"
+	sound.SoundId = "rbxassetid://" .. SOUND_ASSET_ID
+	sound.Volume = SOUND_VOLUME
+	sound.Looped = true
+	sound.Parent = SoundService
+	sound:Play()
+end
+local background = Instance.new("Frame")
+background.Size = UDim2.fromScale(1, 1)
+background.BackgroundColor3 = Color3.fromRGB(12, 5, 14)
+background.BackgroundTransparency = 1
+background.BorderSizePixel = 0
+background.Parent = gui
+local backgroundGradient = Instance.new("UIGradient")
+backgroundGradient.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(30, 12, 30)),
+	ColorSequenceKeypoint.new(0.55, Color3.fromRGB(20, 7, 20)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(11, 4, 12)),
+})
+backgroundGradient.Rotation = 110
+backgroundGradient.Parent = background
+local petalsBack = Instance.new("Frame")
+petalsBack.Size = UDim2.fromScale(1, 1)
+petalsBack.BackgroundTransparency = 1
+petalsBack.ZIndex = 1
+petalsBack.Parent = background
+local petalsFront = Instance.new("Frame")
+petalsFront.Size = UDim2.fromScale(1, 1)
+petalsFront.BackgroundTransparency = 1
+petalsFront.ZIndex = 2
+petalsFront.Parent = background
+local petals = {}
+local function spawnPetal(parent, width, transparency, atTop)
+	local petal = Instance.new("Frame")
+	petal.AnchorPoint = Vector2.new(0.5, 0.5)
+	petal.Size = UDim2.fromOffset(width, math.floor(width * 0.62))
+	petal.BackgroundColor3 = PETAL_COLORS[rng:NextInteger(1, #PETAL_COLORS)]
+	petal.BackgroundTransparency = 1
+	petal.BorderSizePixel = 0
+	petal.ZIndex = parent.ZIndex
+	petal.Parent = parent
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(1, 0)
+	corner.Parent = petal
+	local gradient = Instance.new("UIGradient")
+	gradient.Rotation = 35
+	gradient.Transparency = NumberSequence.new({
+		NumberSequenceKeypoint.new(0, 0),
+		NumberSequenceKeypoint.new(1, 0.55),
+	})
+	gradient.Parent = petal
+	local data = {
+		frame = petal,
+		x = rng:NextNumber(-0.05, 1.05),
+		y = atTop and rng:NextNumber(-0.25, -0.02) or rng:NextNumber(-0.2, 1),
+		fall = rng:NextNumber(0.035, 0.085),
+		sway = rng:NextNumber(0.012, 0.038),
+		swaySpeed = rng:NextNumber(0.5, 1.4),
+		spin = rng:NextNumber(-55, 55),
+		phase = rng:NextNumber(0, math.pi * 2),
+		rotation = rng:NextNumber(0, 360),
+		transparency = transparency,
+	}
+	table.insert(petals, data)
+	TweenService:Create(petal, TweenInfo.new(1.2, Enum.EasingStyle.Quad), {
+		BackgroundTransparency = transparency,
+	}):Play()
+	return data
+end
+for _ = 1, 18 do
+	spawnPetal(petalsBack, rng:NextInteger(9, 16), rng:NextNumber(0.25, 0.55), false)
+end
+for _ = 1, 6 do
+	spawnPetal(petalsFront, rng:NextInteger(14, 22), rng:NextNumber(0.55, 0.78), false)
+end
+local wrapper = Instance.new("Frame")
+wrapper.AnchorPoint = Vector2.new(0.5, 0.5)
+wrapper.Position = UDim2.fromScale(0.5, 0.45)
+wrapper.Size = UDim2.fromOffset(BASE_SIZE, BASE_SIZE)
+wrapper.BackgroundTransparency = 1
+wrapper.ZIndex = 4
+wrapper.Parent = background
+local targetScale = fitScale()
+local wrapperScale = Instance.new("UIScale")
+wrapperScale.Scale = targetScale * 0.82
+wrapperScale.Parent = wrapper
+local card = Instance.new("Frame")
+card.Size = UDim2.fromScale(1, 1)
+card.BackgroundColor3 = DEEP_PLUM
+card.BackgroundTransparency = 1
+card.BorderSizePixel = 0
+card.ClipsDescendants = true
+card.ZIndex = 4
+card.Parent = wrapper
+local cardCorner = Instance.new("UICorner")
+cardCorner.CornerRadius = CORNER_RADIUS
+cardCorner.Parent = card
+local cardStroke = Instance.new("UIStroke")
+cardStroke.Color = Color3.fromRGB(255, 150, 195)
+cardStroke.Transparency = 1
+cardStroke.Thickness = 1.5
+cardStroke.Parent = card
+local image = Instance.new("ImageLabel")
+image.Size = UDim2.fromScale(1, 1)
+image.BackgroundTransparency = 1
+image.Image = assetUrl(IMAGE_ASSET_ID)
+image.ImageTransparency = 1
+image.ScaleType = Enum.ScaleType.Crop
+image.ZIndex = 4
+image.Parent = card
+local imageCorner = Instance.new("UICorner")
+imageCorner.CornerRadius = CORNER_RADIUS
+imageCorner.Parent = image
+local scrim = Instance.new("Frame")
+scrim.Size = UDim2.fromScale(1, 1)
+scrim.BackgroundColor3 = Color3.fromRGB(18, 2, 11)
+scrim.BackgroundTransparency = 1
+scrim.BorderSizePixel = 0
+scrim.ZIndex = 5
+scrim.Parent = card
+local scrimCorner = Instance.new("UICorner")
+scrimCorner.CornerRadius = CORNER_RADIUS
+scrimCorner.Parent = scrim
+local scrimGradient = Instance.new("UIGradient")
+scrimGradient.Rotation = 90
+scrimGradient.Transparency = NumberSequence.new({
+	NumberSequenceKeypoint.new(0, 1),
+	NumberSequenceKeypoint.new(0.55, 0.96),
+	NumberSequenceKeypoint.new(0.82, 0.62),
+	NumberSequenceKeypoint.new(1, 0.35),
+})
+scrimGradient.Parent = scrim
+local topScrim = Instance.new("Frame")
+topScrim.Size = UDim2.fromScale(1, 1)
+topScrim.BackgroundColor3 = Color3.fromRGB(18, 2, 11)
+topScrim.BackgroundTransparency = 1
+topScrim.BorderSizePixel = 0
+topScrim.ZIndex = 5
+topScrim.Parent = card
+local topScrimCorner = Instance.new("UICorner")
+topScrimCorner.CornerRadius = CORNER_RADIUS
+topScrimCorner.Parent = topScrim
+local topScrimGradient = Instance.new("UIGradient")
+topScrimGradient.Rotation = 90
+topScrimGradient.Transparency = NumberSequence.new({
+	NumberSequenceKeypoint.new(0, 0),
+	NumberSequenceKeypoint.new(0.22, 1),
+	NumberSequenceKeypoint.new(1, 1),
+})
+topScrimGradient.Parent = topScrim
+local TEXT_PLATE_WIDTH = 0.84
+local textPlate = Instance.new("ImageLabel")
+textPlate.AnchorPoint = Vector2.new(0.5, 0.5)
+textPlate.Position = UDim2.fromScale(0.5, 0.54)
+textPlate.Size = UDim2.fromScale(TEXT_PLATE_WIDTH, TEXT_PLATE_WIDTH / TEXT_ASPECT)
+textPlate.BackgroundTransparency = 1
+textPlate.Image = assetUrl(TEXT_ASSET_ID)
+textPlate.ImageTransparency = 1
+textPlate.ScaleType = Enum.ScaleType.Fit
+textPlate.ZIndex = 6
+textPlate.Parent = card
+local header = Instance.new("Frame")
+header.Size = UDim2.new(1, 0, 0, 62)
+header.BackgroundTransparency = 1
+header.ZIndex = 6
+header.Parent = card
+local headerPadding = Instance.new("UIPadding")
+headerPadding.PaddingTop = UDim.new(0, 14)
+headerPadding.PaddingLeft = UDim.new(0, 16)
+headerPadding.PaddingRight = UDim.new(0, 16)
+headerPadding.Parent = header
+local GLASS_INSET_X = 16
+local GLASS_TOP = 14
+local GLASS_HEIGHT = 44
+local GLASS_WIDTH = BASE_SIZE - GLASS_INSET_X * 2
+local GLASS_TINT_IDLE = 0.42
+local GLASS_STROKE_IDLE = 0.45
+local GLASS_RADIUS = UDim.new(1, 0)
+local glass = Instance.new("Frame")
+glass.Size = UDim2.fromOffset(GLASS_WIDTH, GLASS_HEIGHT)
+glass.BackgroundTransparency = 1
+glass.BorderSizePixel = 0
+glass.ZIndex = 6
+glass.Parent = header
+local glassStroke = Instance.new("UIStroke")
+glassStroke.Color = Color3.fromRGB(255, 216, 233)
+glassStroke.Transparency = 1
+glassStroke.Thickness = 1
+glassStroke.Parent = glass
+local glassCorner = Instance.new("UICorner")
+glassCorner.CornerRadius = GLASS_RADIUS
+glassCorner.Parent = glass
+local IMAGE_PIXELS = 1024
+local PX_PER_STUD = IMAGE_PIXELS / BASE_SIZE
+local BLUR_OFFSETS = {
+	{ 0, 0 },
+	{ 4, 0 },
+	{ -4, 0 },
+	{ 0, 4 },
+	{ 0, -4 },
+	{ 3, 3 },
+	{ -3, 3 },
+	{ 3, -3 },
+	{ -3, -3 },
+	{ 9, 0 },
+	{ -9, 0 },
+	{ 0, 7 },
+	{ 0, -7 },
+}
+local blurLayers = {}
+for index, offset in ipairs(BLUR_OFFSETS) do
+	local sample = Instance.new("ImageLabel")
+	sample.Size = UDim2.fromScale(1, 1)
+	sample.BackgroundTransparency = 1
+	sample.BorderSizePixel = 0
+	sample.Image = assetUrl(IMAGE_ASSET_ID)
+	sample.ImageRectOffset = Vector2.new(
+		math.round((GLASS_INSET_X + offset[1]) * PX_PER_STUD),
+		math.round((GLASS_TOP + offset[2]) * PX_PER_STUD)
+	)
+	sample.ImageRectSize =
+		Vector2.new(math.round(GLASS_WIDTH * PX_PER_STUD), math.round(GLASS_HEIGHT * PX_PER_STUD))
+	sample.ImageTransparency = 1
+	sample.ZIndex = 6
+	sample.Parent = glass
+	local sampleCorner = Instance.new("UICorner")
+	sampleCorner.CornerRadius = GLASS_RADIUS
+	sampleCorner.Parent = sample
+	table.insert(blurLayers, { label = sample, target = 1 - 1 / index })
+end
+local glassTint = Instance.new("Frame")
+glassTint.Size = UDim2.fromScale(1, 1)
+glassTint.BackgroundColor3 = Color3.fromRGB(38, 8, 24)
+glassTint.BackgroundTransparency = 1
+glassTint.BorderSizePixel = 0
+glassTint.ZIndex = 7
+glassTint.Parent = glass
+local glassTintCorner = Instance.new("UICorner")
+glassTintCorner.CornerRadius = GLASS_RADIUS
+glassTintCorner.Parent = glassTint
+local glassGradient = Instance.new("UIGradient")
+glassGradient.Rotation = 90
+glassGradient.Transparency = NumberSequence.new({
+	NumberSequenceKeypoint.new(0, 0.3),
+	NumberSequenceKeypoint.new(0.5, 0.08),
+	NumberSequenceKeypoint.new(1, 0),
+})
+glassGradient.Parent = glassTint
+local windowTitle = Instance.new("TextLabel")
+windowTitle.AnchorPoint = Vector2.new(0, 0.5)
+windowTitle.Position = UDim2.new(0, 20, 0.5, 0)
+windowTitle.Size = UDim2.new(1, -66, 0, 32)
+windowTitle.BackgroundTransparency = 1
+windowTitle.Text = WINDOW_TITLE
+windowTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+windowTitle.TextTransparency = 1
+windowTitle.TextSize = 24
+windowTitle.Font = Enum.Font.FredokaOne
+windowTitle.TextXAlignment = Enum.TextXAlignment.Left
+windowTitle.TextTruncate = Enum.TextTruncate.AtEnd
+windowTitle.ZIndex = 8
+windowTitle.Parent = glass
+local titleGradient = Instance.new("UIGradient")
+titleGradient.Rotation = 90
+titleGradient.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 218, 236)),
+})
+titleGradient.Parent = windowTitle
+local titleStroke = Instance.new("UIStroke")
+titleStroke.Color = Color3.fromRGB(42, 5, 22)
+titleStroke.Transparency = 1
+titleStroke.Thickness = 2.4
+titleStroke.Parent = windowTitle
+local closeButton = Instance.new("TextButton")
+closeButton.AnchorPoint = Vector2.new(1, 0.5)
+closeButton.Position = UDim2.new(1, -10, 0.5, 0)
+closeButton.Size = UDim2.fromOffset(32, 32)
+closeButton.BackgroundTransparency = 1
+closeButton.BorderSizePixel = 0
+closeButton.AutoButtonColor = false
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 245, 250)
+closeButton.TextTransparency = 1
+closeButton.TextSize = 20
+closeButton.Font = Enum.Font.GothamBlack
+closeButton.ZIndex = 8
+closeButton.Parent = glass
+local closeStroke = Instance.new("UIStroke")
+closeStroke.Color = Color3.fromRGB(42, 5, 22)
+closeStroke.Transparency = 1
+closeStroke.Thickness = 2
+closeStroke.Parent = closeButton
+local closeScale = Instance.new("UIScale")
+closeScale.Parent = closeButton
+local indicator = Instance.new("Frame")
+indicator.AnchorPoint = Vector2.new(0.5, 1)
+indicator.Position = UDim2.new(0.5, 0, 1, -22)
+indicator.Size = UDim2.new(1, -48, 0, 5)
+indicator.BackgroundColor3 = Color3.fromRGB(255, 200, 222)
+indicator.BackgroundTransparency = 1
+indicator.BorderSizePixel = 0
+indicator.ClipsDescendants = true
+indicator.ZIndex = 6
+indicator.Parent = card
+local indicatorCorner = Instance.new("UICorner")
+indicatorCorner.CornerRadius = UDim.new(1, 0)
+indicatorCorner.Parent = indicator
+local shimmer = Instance.new("Frame")
+shimmer.Size = UDim2.fromScale(1, 1)
+shimmer.BackgroundColor3 = HOT_PINK
+shimmer.BackgroundTransparency = 1
+shimmer.BorderSizePixel = 0
+shimmer.ZIndex = 6
+shimmer.Parent = indicator
+local shimmerCorner = Instance.new("UICorner")
+shimmerCorner.CornerRadius = UDim.new(1, 0)
+shimmerCorner.Parent = shimmer
+local shimmerGradient = Instance.new("UIGradient")
+shimmerGradient.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0, LIGHT_PINK),
+	ColorSequenceKeypoint.new(0.5, HOT_PINK),
+	ColorSequenceKeypoint.new(1, LIGHT_PINK),
+})
+shimmerGradient.Transparency = NumberSequence.new({
+	NumberSequenceKeypoint.new(0, 1),
+	NumberSequenceKeypoint.new(0.34, 1),
+	NumberSequenceKeypoint.new(0.5, 0),
+	NumberSequenceKeypoint.new(0.66, 1),
+	NumberSequenceKeypoint.new(1, 1),
+})
+shimmerGradient.Offset = Vector2.new(-1, 0)
+shimmerGradient.Parent = shimmer
+local sparkles = {}
+local function createSparkle(position, size)
+	local holder = Instance.new("Frame")
+	holder.AnchorPoint = Vector2.new(0.5, 0.5)
+	holder.Position = position
+	holder.Size = UDim2.fromOffset(size, size)
+	holder.BackgroundTransparency = 1
+	holder.ZIndex = 3
+	holder.Rotation = rng:NextNumber(-20, 20)
+	holder.Parent = wrapper
+	local scale = Instance.new("UIScale")
+	scale.Scale = 0
+	scale.Parent = holder
+	local function makeArm(vertical)
+		local arm = Instance.new("Frame")
+		arm.AnchorPoint = Vector2.new(0.5, 0.5)
+		arm.Position = UDim2.fromScale(0.5, 0.5)
+		arm.Size = vertical and UDim2.new(0, math.max(2, size * 0.16), 1, 0)
+			or UDim2.new(1, 0, 0, math.max(2, size * 0.16))
+		arm.BackgroundColor3 = Color3.fromRGB(255, 232, 243)
+		arm.BackgroundTransparency = 0.1
+		arm.BorderSizePixel = 0
+		arm.ZIndex = 3
+		arm.Parent = holder
+		local corner = Instance.new("UICorner")
+		corner.CornerRadius = UDim.new(1, 0)
+		corner.Parent = arm
+	end
+	makeArm(true)
+	makeArm(false)
+	table.insert(sparkles, scale)
+	return scale
+end
+createSparkle(UDim2.new(0, -16, 0, 54), 16)
+createSparkle(UDim2.new(1, 20, 0, 96), 22)
+createSparkle(UDim2.new(1, 24, 1, -72), 14)
+createSparkle(UDim2.new(0, 30, 1, 22), 18)
+createSparkle(UDim2.new(0, -28, 0.5, 30), 12)
+createSparkle(UDim2.new(1, 12, 1, 16), 16)
+TweenService:Create(background, TweenInfo.new(0.45, Enum.EasingStyle.Quad), { BackgroundTransparency = 0.06 }):Play()
+TweenService:Create(blur, TweenInfo.new(0.7, Enum.EasingStyle.Quad), { Size = 22 }):Play()
+TweenService
+	:Create(wrapperScale, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out), { Scale = targetScale })
+	:Play()
+local fadeIn = TweenInfo.new(0.8, Enum.EasingStyle.Quad)
+TweenService:Create(card, fadeIn, { BackgroundTransparency = 0.04 }):Play()
+TweenService:Create(cardStroke, fadeIn, { Transparency = 0.45 }):Play()
+TweenService:Create(image, fadeIn, { ImageTransparency = 0 }):Play()
+TweenService:Create(textPlate, fadeIn, { ImageTransparency = 0 }):Play()
+TweenService:Create(scrim, fadeIn, { BackgroundTransparency = 0.05 }):Play()
+TweenService:Create(topScrim, fadeIn, { BackgroundTransparency = 0.45 }):Play()
+TweenService:Create(glassTint, fadeIn, { BackgroundTransparency = GLASS_TINT_IDLE }):Play()
+for _, layer in ipairs(blurLayers) do
+	TweenService:Create(layer.label, fadeIn, { ImageTransparency = layer.target }):Play()
+end
+TweenService:Create(glassStroke, fadeIn, { Transparency = GLASS_STROKE_IDLE }):Play()
+TweenService:Create(windowTitle, fadeIn, { TextTransparency = 0 }):Play()
+TweenService:Create(titleStroke, fadeIn, { Transparency = 0.15 }):Play()
+TweenService:Create(closeButton, fadeIn, { TextTransparency = 0 }):Play()
+TweenService:Create(closeStroke, fadeIn, { Transparency = 0.15 }):Play()
+TweenService:Create(indicator, fadeIn, { BackgroundTransparency = 0.78 }):Play()
+TweenService:Create(shimmer, fadeIn, { BackgroundTransparency = 0 }):Play()
+local closing = false
+local petalConnection
+local function closeUI()
+	if closing then
+		return
+	end
+	closing = true
+	local info = TweenInfo.new(0.32, Enum.EasingStyle.Back, Enum.EasingDirection.In)
+	TweenService:Create(wrapperScale, info, { Scale = targetScale * 0.86 }):Play()
+	local fadeOut = TweenInfo.new(0.32, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+	TweenService:Create(card, fadeOut, { BackgroundTransparency = 1 }):Play()
+	TweenService:Create(cardStroke, fadeOut, { Transparency = 1 }):Play()
+	TweenService:Create(image, fadeOut, { ImageTransparency = 1 }):Play()
+	TweenService:Create(textPlate, fadeOut, { ImageTransparency = 1 }):Play()
+	TweenService:Create(scrim, fadeOut, { BackgroundTransparency = 1 }):Play()
+	TweenService:Create(topScrim, fadeOut, { BackgroundTransparency = 1 }):Play()
+	TweenService:Create(glassTint, fadeOut, { BackgroundTransparency = 1 }):Play()
+	for _, layer in ipairs(blurLayers) do
+		TweenService:Create(layer.label, fadeOut, { ImageTransparency = 1 }):Play()
+	end
+	TweenService:Create(glassStroke, fadeOut, { Transparency = 1 }):Play()
+	TweenService:Create(windowTitle, fadeOut, { TextTransparency = 1 }):Play()
+	TweenService:Create(titleStroke, fadeOut, { Transparency = 1 }):Play()
+	TweenService:Create(closeButton, fadeOut, { TextTransparency = 1 }):Play()
+	TweenService:Create(closeStroke, fadeOut, { Transparency = 1 }):Play()
+	TweenService:Create(indicator, fadeOut, { BackgroundTransparency = 1 }):Play()
+	TweenService:Create(shimmer, fadeOut, { BackgroundTransparency = 1 }):Play()
+	TweenService:Create(background, fadeOut, { BackgroundTransparency = 1 }):Play()
+	TweenService:Create(blur, fadeOut, { Size = 0 }):Play()
+	if sound then
+		TweenService:Create(sound, fadeOut, { Volume = 0 }):Play()
+	end
+	for _, scale in ipairs(sparkles) do
+		TweenService:Create(scale, fadeOut, { Scale = 0 }):Play()
+	end
+	for _, data in ipairs(petals) do
+		TweenService:Create(data.frame, fadeOut, { BackgroundTransparency = 1 }):Play()
+	end
+	task.delay(0.4, function()
+		if petalConnection then
+			petalConnection:Disconnect()
+		end
+		gui:Destroy()
+		blur:Destroy()
+		if sound then
+			sound:Destroy()
+		end
+	end)
+end
+closeButton.MouseEnter:Connect(function()
+	if closing then
+		return
+	end
+	TweenService:Create(closeButton, TweenInfo.new(0.18), { TextColor3 = HOT_PINK }):Play()
+	TweenService
+		:Create(closeScale, TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out), { Scale = 1.18 })
+		:Play()
+end)
+closeButton.MouseLeave:Connect(function()
+	if closing then
+		return
+	end
+	TweenService:Create(closeButton, TweenInfo.new(0.18), { TextColor3 = Color3.fromRGB(255, 245, 250) }):Play()
+	TweenService
+		:Create(closeScale, TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out), { Scale = 1 })
+		:Play()
+end)
+closeButton.MouseButton1Click:Connect(closeUI)
+camera:GetPropertyChangedSignal("ViewportSize"):Connect(function()
+	targetScale = fitScale()
+	if not closing then
+		wrapperScale.Scale = targetScale
+	end
+end)
+task.spawn(function()
+	pcall(function()
+		game:GetService("ContentProvider"):PreloadAsync({ image, textPlate })
+	end)
+	if not image.IsLoaded then
+		warn("[RysHub] El fondo no cargó. assetid:", IMAGE_ASSET_ID)
+	end
+	if not textPlate.IsLoaded then
+		warn("[RysHub] El cartel no cargó. assetid:", TEXT_ASSET_ID)
+	end
+end)
+petalConnection = RunService.RenderStepped:Connect(function(dt)
+	for _, data in ipairs(petals) do
+		data.y += data.fall * dt
+		data.phase += data.swaySpeed * dt
+		data.rotation += data.spin * dt
+		if data.y > 1.15 then
+			data.y = rng:NextNumber(-0.3, -0.05)
+			data.x = rng:NextNumber(-0.05, 1.05)
+			data.spin = rng:NextNumber(-55, 55)
+		end
+		local swayX = math.sin(data.phase) * data.sway
+		data.frame.Position = UDim2.fromScale(data.x + swayX, data.y)
+		data.frame.Rotation = data.rotation + math.sin(data.phase * 1.6) * 18
+	end
+end)
+task.spawn(function()
+	task.wait(0.8)
+	while gui.Parent and not closing do
+		TweenService
+			:Create(cardStroke, TweenInfo.new(1.6, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+				Transparency = 0.15,
+			})
+			:Play()
+		task.wait(1.6)
+		if closing then
+			break
+		end
+		TweenService
+			:Create(cardStroke, TweenInfo.new(1.6, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+				Transparency = 0.55,
+			})
+			:Play()
+		task.wait(1.6)
+	end
+end)
+for index, scale in ipairs(sparkles) do
+	task.spawn(function()
+		task.wait(0.8 + index * 0.22)
+		while gui.Parent and not closing do
+			TweenService
+				:Create(scale, TweenInfo.new(0.42, Enum.EasingStyle.Back, Enum.EasingDirection.Out), { Scale = 1 })
+				:Play()
+			task.wait(0.55)
+			if closing then
+				break
+			end
+			TweenService
+				:Create(scale, TweenInfo.new(0.38, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Scale = 0 })
+				:Play()
+			task.wait(0.38 + rng:NextNumber(0.6, 2.4))
+		end
+	end)
+end
+task.spawn(function()
+	while gui.Parent and not closing do
+		shimmerGradient.Offset = Vector2.new(-1, 0)
+		local tween = TweenService:Create(
+			shimmerGradient,
+			TweenInfo.new(1.6, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
+			{ Offset = Vector2.new(1, 0) }
+		)
+		tween:Play()
+		tween.Completed:Wait()
+		task.wait(0.25)
+	end
+end)
